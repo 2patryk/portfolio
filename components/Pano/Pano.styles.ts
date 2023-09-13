@@ -6,7 +6,7 @@ export const Wrapper = styled.div``;
 
 export const Overlay = styled.div`
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
