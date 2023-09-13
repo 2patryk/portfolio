@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, Ref, useMemo, useRef } from "react";
+import { FC, Ref, useMemo, useRef, useState } from "react";
 import * as Styled from "./Pano.styles";
 import dynamic from "next/dynamic";
 import { PANO_DATA } from "@/utils/data";
@@ -21,7 +21,7 @@ import {
 // );
 
 const Pano: FC = () => {
-  const panoRef = useRef<any>(null);
+  const [isReady, setIsReady] = useState(false);
   const item = useMemo(
     () => PANO_DATA[Math.floor(Math.random() * PANO_DATA.length)],
     []
@@ -41,7 +41,6 @@ const Pano: FC = () => {
     <Styled.Wrapper>
       {item.src && (
         <ReactPhotoSphereViewer
-          ref={panoRef}
           src={item.src}
           height={"100vh"}
           width={"100%"}
@@ -52,7 +51,19 @@ const Pano: FC = () => {
           plugins={plugins as any}
           defaultZoomLvl={20}
           defaultPitch="-11deg"
+          onReady={(instance) => setIsReady(true)}
         ></ReactPhotoSphereViewer>
+      )}
+      {isReady && (
+        <Styled.Overlay>
+          <Styled.Details>
+            <Styled.Title>{item.place}</Styled.Title>
+            <Styled.Subtitle>
+              {item.region}, {item.country}
+            </Styled.Subtitle>
+          </Styled.Details>
+          <Styled.Ctas></Styled.Ctas>
+        </Styled.Overlay>
       )}
     </Styled.Wrapper>
   );
