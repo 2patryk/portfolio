@@ -54,7 +54,7 @@ const Pano: FC = () => {
           container={""}
           navbar={false}
           loadingImg={undefined}
-          loadingTxt={undefined}
+        //   loadingTxt={undefined}
           plugins={plugins as any}
           defaultZoomLvl={20}
           defaultPitch="-11deg"
