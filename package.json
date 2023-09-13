@@ -19,7 +19,8 @@
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3",
+    "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
+    "styled-components": "^6.0.8",
     "typescript": "5.1.6"
   }
 }
