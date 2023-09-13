@@ -20,12 +20,18 @@ import {
 //   }
 // );
 
+const getRandomItem = (old?: any) => {
+  const data = old
+    ? PANO_DATA.filter((item) => item.src !== old.src)
+    : PANO_DATA;
+
+  return data[Math.floor(Math.random() * data.length)];
+};
+
 const Pano: FC = () => {
   const [isReady, setIsReady] = useState(false);
-  const item = useMemo(
-    () => PANO_DATA[Math.floor(Math.random() * PANO_DATA.length)],
-    []
-  );
+  const [item, setItem] = useState(getRandomItem());
+
   const plugins = [
     [
       AutorotatePlugin,
@@ -41,6 +47,7 @@ const Pano: FC = () => {
     <Styled.Wrapper>
       {item.src && (
         <ReactPhotoSphereViewer
+          key={item.src}
           src={item.src}
           height={"100vh"}
           width={"100%"}
@@ -57,12 +64,21 @@ const Pano: FC = () => {
       {isReady && (
         <Styled.Overlay>
           <Styled.Details>
-            <Styled.Title>{item.place}</Styled.Title>
+            <Styled.Title>
+              <span>{item.place}</span>
+              <Styled.RefreshButton
+                onClick={() => {
+                  setIsReady(false);
+                  setItem(getRandomItem(item));
+                }}
+              >
+                <Styled.RefreshIcon src="/images/refresh.svg" />
+              </Styled.RefreshButton>
+            </Styled.Title>
             <Styled.Subtitle>
               {item.region}, {item.country}
             </Styled.Subtitle>
           </Styled.Details>
-          <Styled.Ctas></Styled.Ctas>
         </Styled.Overlay>
       )}
     </Styled.Wrapper>

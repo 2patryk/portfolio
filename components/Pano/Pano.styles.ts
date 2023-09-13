@@ -1,6 +1,6 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Wrapper = styled.div``;
 
@@ -15,11 +15,34 @@ export const Overlay = styled.div`
 `;
 
 export const Details = styled.div`
-  margin: 24px 32px;
+  margin: 42rem 54rem;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  display: flex;
+  align-items: center;
+`;
 
 export const Subtitle = styled.h2``;
 
 export const Ctas = styled.div``;
+
+export const RefreshButton = styled.button`
+  pointer-events: all;
+  cursor: pointer;
+  margin-left: 14rem;
+`;
+
+const rotating = keyframes`
+ from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+`;
+
+export const RefreshIcon = styled.img`
+  width: 28rem;
+  height: 28rem;
+`;
