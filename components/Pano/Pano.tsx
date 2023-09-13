@@ -1,8 +1,9 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import * as Styled from "./Pano.styles";
 import dynamic from "next/dynamic";
+import { PANO_DATA } from "@/utils/data";
 
 const ReactPhotoSphereViewer = dynamic(
   () =>
@@ -15,17 +16,24 @@ const ReactPhotoSphereViewer = dynamic(
 );
 
 const Pano: FC = () => {
+  const item = useMemo(
+    () => PANO_DATA[Math.floor(Math.random() * PANO_DATA.length)],
+    []
+  );
+
   return (
     <Styled.Wrapper>
-      <ReactPhotoSphereViewer
-        src="/images/balos.jpg"
-        height={"100vh"}
-        width={"100%"}
-        container={""}
-        navbar={false}
-        loadingImg={undefined}
-        loadingTxt={undefined}
-      ></ReactPhotoSphereViewer>
+      {item.src && (
+        <ReactPhotoSphereViewer
+          src={item.src}
+          height={"100vh"}
+          width={"100%"}
+          container={""}
+          navbar={false}
+          loadingImg={undefined}
+          loadingTxt={undefined}
+        ></ReactPhotoSphereViewer>
+      )}
     </Styled.Wrapper>
   );
 };
