@@ -3,7 +3,7 @@
 import { FC, Ref, useMemo, useRef, useState } from "react";
 import * as Styled from "./Pano.styles";
 import dynamic from "next/dynamic";
-import { PANO_DATA } from "@/utils/data";
+import { PANO_DATA, PanoType } from "@/utils/data";
 // import { AutorotatePlugin } from "@photo-sphere-viewer/autorotate-plugin";
 import {
   AutorotatePlugin,
@@ -20,17 +20,24 @@ import {
 //   }
 // );
 
-const getRandomItem = (old?: any) => {
-  const data = old
-    ? PANO_DATA.filter((item) => item.src !== old.src)
-    : PANO_DATA;
+// const getRandomItem = (old?: any) => {
+//   const data = old
+//     ? PANO_DATA.filter((item) => item.src !== old.src)
+//     : PANO_DATA;
 
-  return data[Math.floor(Math.random() * data.length)];
+//   return data[Math.floor(Math.random() * data.length)];
+// };
+
+type PanoProps = {
+  pano: PanoType;
 };
 
-const Pano: FC = () => {
+const Pano: FC<PanoProps> = ({ pano }) => {
   const [isReady, setIsReady] = useState(false);
-  const [item, setItem] = useState(getRandomItem());
+  //   const [item, setItem] = useState(getRandomItem());
+  //   const [data, setData] = useState(
+  //     PANO_DATA.filter((itemIn) => itemIn.src !== item.src)
+  //   );
 
   const plugins = [
     [
@@ -45,16 +52,16 @@ const Pano: FC = () => {
 
   return (
     <Styled.Wrapper>
-      {item.src && (
+      {pano.src && (
         <ReactPhotoSphereViewer
-          key={item.src}
-          src={item.src}
+          key={pano.src}
+          src={pano.src}
           height={"100vh"}
           width={"100%"}
           container={""}
           navbar={false}
           loadingImg={undefined}
-        //   loadingTxt={undefined}
+          //   loadingTxt={undefined}
           plugins={plugins as any}
           defaultZoomLvl={20}
           defaultPitch="-11deg"
@@ -65,18 +72,26 @@ const Pano: FC = () => {
         <Styled.Overlay>
           <Styled.Details>
             <Styled.Title>
-              <span>{item.place}</span>
-              <Styled.RefreshButton
+              <span>{pano.place}</span>
+              {/* <Styled.RefreshButton
                 onClick={() => {
                   setIsReady(false);
+                  const newItem = getRandomItem(item);
+                  setData((prev) => {
+                    const newData = prev.filter(
+                      (itemIn) => itemIn.src !== newItem.src
+                    );
+                    if (newData.length === 0) return PANO_DATA;
+                    return newData;
+                  });
                   setItem(getRandomItem(item));
                 }}
               >
                 <Styled.RefreshIcon src="/images/refresh.svg" />
-              </Styled.RefreshButton>
+              </Styled.RefreshButton> */}
             </Styled.Title>
             <Styled.Subtitle>
-              {item.region}, {item.country}
+              {pano.region}, {pano.country}
             </Styled.Subtitle>
           </Styled.Details>
         </Styled.Overlay>
