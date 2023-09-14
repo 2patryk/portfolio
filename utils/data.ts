@@ -63,4 +63,18 @@ export const PANO_DATA = [
     country: "Poland",
     slug: "wroclaw",
   },
+  {
+    src: "/images/fue2.jpg",
+    place: "Playa de la Pared",
+    region: "Fuerteventura",
+    country: "Spain",
+    slug: "playa-pared",
+  },
+  {
+    src: "/images/wro2.jpg",
+    place: "Odra sunset",
+    region: "Wrocław",
+    country: "Poland",
+    slug: "wroclaw-odra",
+  },
 ];
