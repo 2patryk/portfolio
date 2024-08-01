@@ -46,15 +46,6 @@
          path.resolve(dir, `${name}.styles.ts`)
        ),
      ]);
-     await Promise.all([
-       template(
-         path.resolve(
-           __dirname,
-           `templates/${TYPE}/${templateFileNamePrefix}.stories.txt`
-         ),
-         path.resolve(dir, `${name}.stories.tsx`)
-       ),
-     ]);
      console.info(chalk.greenBright(`Created new ${name} ${TYPE} at ${dir}`));
    } catch (error) {
      console.error(chalk.redBright('Write error', error));
