@@ -27,6 +27,8 @@ const style = css`
   body {
     margin: 0;
     padding: 0;
+    transition: background 0.3s, color 0.3s;
+
   }
 
   html {
