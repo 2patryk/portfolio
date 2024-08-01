@@ -1,3 +1,5 @@
+"use client";
+
 import { useGlobalStore } from "@/utils/globalStore";
 import { LOCAL_STORAGE_COLOR_SCHEME_KEY } from "@/utils/vars";
 import { useEffect } from "react";
