@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "new-component": "node ./scripts/component.js"
   },
   "dependencies": {
+    "@ariakit/react": "^0.4.7",
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -21,6 +23,13 @@
     "react-dom": "18.2.0",
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "styled-components": "^6.0.8",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "zustand": "^4.5.4",
+    "mkdirp": "1.0.4"
+  },
+  "devDependencies": {
+    "maxstache": "1.0.7",
+    "minimist": "1.2.7",
+    "change-case": "4.1.2"
   }
 }

@@ -1,12 +1,11 @@
-import Navigation from "@/components/Navigation/Navigation";
-import dynamic from "next/dynamic";
+"use client";
 
-const Pano = dynamic(() => import("@/components/Pano/Pano"), { ssr: false });
+import Header from "@/components/Header/Header";
 
 export default function Home() {
   return (
     <main>
-      <Navigation />
+      <Header />
     </main>
   );
 }
