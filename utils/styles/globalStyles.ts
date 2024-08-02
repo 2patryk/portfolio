@@ -48,6 +48,13 @@ const style = css`
     /* background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.textPrimary}; */
     font-size: 20rem;
+    background: linear-gradient(
+      206deg,
+      rgba(92, 34, 255, 0.7) -5%,
+      rgba(0, 0, 0, 0) 52.121%
+    );
+    background-repeat: no-repeat;
+    height: 1600px;
   }
 
   body[data-theme="dark"] {

@@ -6,6 +6,9 @@ export const Wrapper = styled.header`
   height: 200px;
   width: 100%;
   color: ${({ theme }) => theme.colors.textPrimary};
+  display: flex;
+  justify-content: space-between;
+  padding-top: ${({ theme }) => theme.spacing(2)};
 `;
 
 export const Title = styled.h1`

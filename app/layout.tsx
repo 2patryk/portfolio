@@ -25,14 +25,12 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: getTheme }} />
       </head>
       <body>
-        <main>
-          <StyledComponentsRegistry>
-            <ThemeProvider theme={theme}>
-              <GlobalStyles />
-              {children}
-            </ThemeProvider>
-          </StyledComponentsRegistry>
-        </main>
+        <StyledComponentsRegistry>
+          <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            {children}
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
