@@ -3,6 +3,7 @@ import { breakpointDesktop } from "../vars";
 export enum ColorNames {
   primary = "primary",
   secondary = "secondary",
+  tertiary = "tertiary",
   textPrimary = "textPrimary",
   textSecondary = "textSecondary",
   textInverted = "textInverted",
@@ -22,21 +23,23 @@ export type Theme = {
 };
 
 export const lightColors: Record<ColorNames, string> = {
-  primary: "#000",
-  secondary: "#fff",
-  textPrimary: "#000",
-  textSecondary: "#fff",
-  textInverted: "#fff",
-  background: "#f8f4f4",
+  primary: "#52B788",
+  secondary: "#74C69D",
+  tertiary: "#40916C",
+  textPrimary: "#081C15",
+  textSecondary: "#1B4332",
+  textInverted: "#B7E4C7",
+  background: "#D8F3DC",
 };
 
 export const darkColors: Record<ColorNames, string> = {
-  primary: "#fff",
-  secondary: "#000",
-  textPrimary: "#fff",
-  textSecondary: "#000",
-  textInverted: "#000",
-  background: "#201c1c",
+  primary: "#52B788",
+  secondary: "#74C69D",
+  tertiary: "#40916C",
+  textPrimary: "#D8F3DC",
+  textSecondary: "#95D5B2",
+  textInverted: "#1B4332",
+  background: "#081C15",
 };
 
 export const theme = {
