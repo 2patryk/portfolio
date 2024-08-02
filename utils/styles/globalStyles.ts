@@ -1,8 +1,19 @@
 import { createGlobalStyle, css } from "styled-components";
 
 import resetCSS from "./reset";
+import { darkColors, lightColors } from "./theme";
 
 const style = css`
+  :root {
+    color-scheme: light;
+    ${Object.entries(lightColors).map(([key, value]) => `--${key}: ${value};`)}
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    ${Object.entries(darkColors).map(([key, value]) => `--${key}: ${value};`)}
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -13,13 +24,13 @@ const style = css`
 
   ::selection {
     background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text.inverted};
+    color: ${({ theme }) => theme.colors.textInverted};
     text-shadow: none;
   }
 
   ::-moz-selection {
     background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text.inverted};
+    color: ${({ theme }) => theme.colors.textInverted};
     text-shadow: none;
   }
 
@@ -34,9 +45,13 @@ const style = css`
   }
 
   body {
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text.primary};
+    /* background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.textPrimary}; */
     font-size: 20rem;
+  }
+
+  body[data-theme="dark"] {
+    background: black;
   }
 
   button,

@@ -1,12 +1,11 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "../lib/registry";
 import { ThemeProvider } from "styled-components";
-import usePrefersColorScheme from "@/hooks/usePrefersColorScheme";
-import { darkTheme, lightTheme } from "@/utils/styles/theme";
+import { theme } from "@/utils/styles/theme";
 import GlobalStyles from "@/utils/styles/globalStyles";
+import { getTheme } from "@/utils/styles/getTheme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,16 +19,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const colorScheme = usePrefersColorScheme();
-
   return (
-    <html>
+    <html suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: getTheme }} />
+      </head>
       <body>
         <main>
           <StyledComponentsRegistry>
-            <ThemeProvider
-              theme={colorScheme === "dark" ? darkTheme : lightTheme}
-            >
+            <ThemeProvider theme={theme}>
               <GlobalStyles />
               {children}
             </ThemeProvider>

@@ -16,20 +16,20 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
-    "eslint-config-next": "13.4.19",
-    "next": "13.4.19",
+    "eslint-config-next": "^14.2.5",
+    "mkdirp": "1.0.4",
+    "next": "^14.2.5",
     "postcss": "8.4.28",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "styled-components": "^6.0.8",
     "typescript": "5.1.6",
-    "zustand": "^4.5.4",
-    "mkdirp": "1.0.4"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "change-case": "4.1.2",
     "maxstache": "1.0.7",
-    "minimist": "1.2.7",
-    "change-case": "4.1.2"
+    "minimist": "1.2.7"
   }
 }

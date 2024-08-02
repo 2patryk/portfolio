@@ -1,22 +1,34 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 
 import * as Styled from "./ColorSchemeSwitch.styles";
 import { Checkbox, useCheckboxStore } from "@ariakit/react";
-import { useGlobalStore } from "@/utils/globalStore";
 
 export interface ColorSchemeSwitchProps {}
 
 const ColorSchemeSwitch: React.FC<ColorSchemeSwitchProps> = () => {
-  const { colorScheme, setColorScheme } = useGlobalStore();
+  const [theme, setTheme] = useState(global.window?.__theme || "light");
+
+  const isDark = theme === "dark";
+
+  const toggleTheme = () => {
+    global.window?.__setPreferredTheme(theme === "light" ? "dark" : "light");
+  };
+
   const checkbox = useCheckboxStore({
-    value: colorScheme === "dark",
-    setValue: (value) => setColorScheme(value ? "dark" : "light"),
+    value: isDark,
+    setValue: toggleTheme,
   });
+
+  useEffect(() => {
+    global.window.__onThemeChange = setTheme;
+  }, []);
 
   return (
     <Styled.Wrapper>
       <label className="label">
-        <Checkbox store={checkbox} /> Color scheme
+        <Checkbox store={checkbox} suppressHydrationWarning /> Color scheme
       </label>
     </Styled.Wrapper>
   );

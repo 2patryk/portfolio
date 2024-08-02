@@ -5,7 +5,7 @@ export const Wrapper = styled.header`
   ${layoutView};
   height: 200px;
   width: 100%;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const Title = styled.h1`
