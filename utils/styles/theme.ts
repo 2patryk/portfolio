@@ -12,8 +12,8 @@ export enum ColorNames {
 export type Theme = {
   colors: Record<ColorNames, string>;
   fonts: {
-    primary: string;
-    secondary: string;
+    text: string;
+    heading: string;
   };
   spacing: (multiplier: number) => string;
   layout: {
@@ -45,8 +45,8 @@ export const theme = {
     {}
   ) as Record<ColorNames, string>,
   fonts: {
-    primary: "",
-    secondary: "",
+    text: "var(--figtree)",
+    heading: "var(--space-grotesk)",
   },
   spacing: (multiplier: number) => `${multiplier * 8}rem`,
   layout: {

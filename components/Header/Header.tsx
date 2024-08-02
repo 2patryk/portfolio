@@ -18,7 +18,11 @@ const SetTheme = dynamic(
 const Header: FC<HeaderProps> = () => {
   return (
     <Styled.Wrapper>
-      <Styled.Title>Patryk</Styled.Title>
+      <Styled.TextBox>
+        <Styled.PreTitle>Hi there, I'm</Styled.PreTitle>
+        <Styled.Title>Patryk Ordon</Styled.Title>
+        <Styled.PostTitle>Frontend & Creative Developer</Styled.PostTitle>
+      </Styled.TextBox>
       <ColorSchemeSwitch />
     </Styled.Wrapper>
   );

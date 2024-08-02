@@ -1,6 +1,6 @@
 "use client";
 
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, Figtree } from "next/font/google";
 import StyledComponentsRegistry from "../lib/registry";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@/utils/styles/theme";
@@ -8,6 +8,18 @@ import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--space-grotesk",
+});
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--figtree",
+});
 
 // export const metadata: Metadata = {
 //   title: "Patryk Ordon site",
@@ -20,7 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning>
+    <html
+      suppressHydrationWarning
+      className={`${figtree.variable} ${spaceGrotesk.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: getTheme }} />
       </head>

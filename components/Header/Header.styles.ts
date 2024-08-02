@@ -12,5 +12,25 @@ export const Wrapper = styled.header`
 `;
 
 export const Title = styled.h1`
+  font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 30rem;
+  margin-bottom: ${({ theme }) => theme.spacing(0.5)};
+  font-weight: 600;
+`;
+
+export const PreTitle = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.text};
+  font-size: 12rem;
+`;
+
+export const PostTitle = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 10rem;
+  font-weight: 500;
+`;
+
+export const TextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: ${({ theme }) => theme.spacing(15)};
 `;

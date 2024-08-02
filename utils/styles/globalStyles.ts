@@ -47,6 +47,7 @@ const style = css`
   body {
     /* background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.textPrimary}; */
+    font-family: ${({ theme }) => theme.fonts.text};
     font-size: 20rem;
     background: linear-gradient(
       206deg,
