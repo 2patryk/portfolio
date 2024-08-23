@@ -1,7 +1,9 @@
-"use client";
+import { globalCopy } from "@/utils/copy";
+import { Metadata } from "next";
 
-import Header from "@/components/molecules/Header/Header";
-import dynamic from "next/dynamic";
+export const metadata: Metadata = {
+  ...globalCopy.meta.index,
+};
 
 export default function Home() {
   return null;

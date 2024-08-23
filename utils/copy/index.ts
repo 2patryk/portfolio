@@ -1,4 +1,7 @@
+import { metaCopy } from "./meta";
+
 export const globalCopy = {
+  meta: metaCopy,
   menu: {
     about: "About me",
     projects: "Projects",
