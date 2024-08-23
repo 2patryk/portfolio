@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ariakit/react": "^0.4.7",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -27,6 +28,7 @@
     "react-dom": "^18.3.1",
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "styled-components": "^6.0.8",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "5.1.6",
     "zustand": "^4.5.4"
   },
@@ -42,6 +44,7 @@
     "@storybook/test": "^8.2.9",
     "change-case": "4.1.2",
     "eslint-plugin-storybook": "^0.8.0",
+    "file-loader": "^6.2.0",
     "maxstache": "1.0.7",
     "minimist": "1.2.7",
     "storybook": "^8.2.9"

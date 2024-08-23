@@ -29,7 +29,7 @@ export const lightColors: Record<ColorNames, string> = {
   textPrimary: "#081C15",
   textSecondary: "#1B4332",
   textInverted: "#B7E4C7",
-  background: "#D8F3DC",
+  background: "#e5e1dd",
 };
 
 export const darkColors: Record<ColorNames, string> = {
@@ -39,7 +39,7 @@ export const darkColors: Record<ColorNames, string> = {
   textPrimary: "#D8F3DC",
   textSecondary: "#95D5B2",
   textInverted: "#1B4332",
-  background: "#001427",
+  background: "#212529",
 };
 
 export const theme = {

@@ -12,4 +12,7 @@ export const Default: Story = {
   parameters: {
     layout: "centered",
   },
+  args: {
+    progress: 0.5,
+  },
 };

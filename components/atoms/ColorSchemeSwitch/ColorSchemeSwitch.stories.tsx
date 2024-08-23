@@ -9,10 +9,6 @@ export default meta;
 type Story = StoryObj<typeof ColorSchemeSwitch>;
 
 export const Default: Story = {
-  args: {
-    primary: true,
-    label: "ColorSchemeSwitch",
-  },
   parameters: {
     layout: "centered",
   },

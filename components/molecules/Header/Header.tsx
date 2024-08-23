@@ -13,14 +13,17 @@ const Header: FC<HeaderProps> = () => {
   const copy = globalCopy.header;
 
   return (
-    <Styled.Wrapper>
-      <Styled.TextBox>
-        <Styled.PreTitle>{copy.preTitle}</Styled.PreTitle>
-        <Styled.Title>{copy.title}</Styled.Title>
-        <Styled.PostTitle>{copy.postTitle}</Styled.PostTitle>
-      </Styled.TextBox>
-      <ColorSchemeSwitch />
-    </Styled.Wrapper>
+    <Styled.Container>
+      {/* <Styled.MaskBackground src="/images/noise.png" /> */}
+      <Styled.Wrapper>
+        <Styled.TextBox>
+          <Styled.PreTitle>{copy.preTitle}</Styled.PreTitle>
+          <Styled.Title>{copy.title}</Styled.Title>
+          <Styled.PostTitle>{copy.postTitle}</Styled.PostTitle>
+        </Styled.TextBox>
+        <ColorSchemeSwitch />
+      </Styled.Wrapper>
+    </Styled.Container>
   );
 };
 

@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "@/utils/styles/theme";
 import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
+import Loading from "@/components/molecules/Loading/Loading";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             {children}
+            <Loading progress={0.6} />
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

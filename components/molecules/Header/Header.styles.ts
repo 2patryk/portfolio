@@ -1,14 +1,19 @@
 import { layoutView } from "@/utils/styles/mixins";
 import styled from "styled-components";
 
-export const Wrapper = styled.header`
+export const Container = styled.div`
+  width: 100%;
+  height: 500rem;
+`;
+
+export const Wrapper = styled.div`
   ${layoutView};
   width: 100%;
   color: ${({ theme }) => theme.colors.textPrimary};
   display: flex;
   justify-content: space-between;
   padding-top: ${({ theme }) => theme.spacing(2)};
-  height: 500rem;
+  position: relative;
 `;
 
 export const Title = styled.h1`
@@ -34,4 +39,16 @@ export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: ${({ theme }) => theme.spacing(15)};
+`;
+
+export const MaskBackground = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: lighten;
+  image-rendering: pixelated;
+  z-index: -1;
 `;
