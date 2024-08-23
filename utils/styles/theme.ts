@@ -39,7 +39,7 @@ export const darkColors: Record<ColorNames, string> = {
   textPrimary: "#D8F3DC",
   textSecondary: "#95D5B2",
   textInverted: "#1B4332",
-  background: "#081C15",
+  background: "#001427",
 };
 
 export const theme = {
@@ -55,4 +55,18 @@ export const theme = {
   layout: {
     maxWidth: `${breakpointDesktop}px`,
   },
+};
+
+export const lightTheme = { ...theme, colors: lightColors };
+
+export const darkTheme = { ...theme, colors: darkColors };
+
+const colorPalette = {
+  primary: "#1A1A2E", // Deep Navy Blue
+  secondary: "#0F3460", // Electric Blue
+  accent: "#00D2FF", // Vibrant Cyan
+  complementary: "#FF6B6B", // Soft Coral
+  neutral: "#F0F0F0", // Light Grey
+  text: "#F5F5F5", // Off-White
+  shadow: "#2E2E3A", // Dark Slate Gray
 };

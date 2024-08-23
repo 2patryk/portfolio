@@ -6,7 +6,7 @@ export const globalCopy = {
   },
   header: {
     preTitle: "Hi there, I'm",
-    title: "Patryk Ordon",
+    title: "PATRYK ORDON",
     postTitle: "Frontend Developer",
   },
 };

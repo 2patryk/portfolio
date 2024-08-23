@@ -7,8 +7,6 @@ import { theme } from "@/utils/styles/theme";
 import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
 
-const inter = Inter({ subsets: ["latin"] });
-
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",

@@ -9,13 +9,6 @@ import { globalCopy } from "@/utils/copy";
 
 type HeaderProps = {};
 
-const SetTheme = dynamic(
-  () => import("../ColorSchemeSwitch/ColorSchemeSwitch"),
-  {
-    ssr: false,
-  }
-);
-
 const Header: FC<HeaderProps> = () => {
   const copy = globalCopy.header;
 

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "new-component": "node ./scripts/component.js"
+    "new-component": "node ./scripts/component.js",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@ariakit/react": "^0.4.7",
@@ -29,8 +31,19 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/addon-themes": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/nextjs": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/test": "^8.2.9",
     "change-case": "4.1.2",
+    "eslint-plugin-storybook": "^0.8.0",
     "maxstache": "1.0.7",
-    "minimist": "1.2.7"
+    "minimist": "1.2.7",
+    "storybook": "^8.2.9"
   }
 }
