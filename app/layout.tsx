@@ -43,7 +43,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             {children}
-            <Loading progress={0.6} />
+            <Loading isLoading />
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

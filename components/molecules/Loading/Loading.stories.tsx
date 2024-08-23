@@ -8,4 +8,8 @@ const meta: Meta<typeof Loading> = {
 export default meta;
 type Story = StoryObj<typeof Loading>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    isLoading: true,
+  },
+};

@@ -12,7 +12,7 @@ const Loading: FC<LoadingProps> = ({ isLoading }) => {
     <Styled.Wrapper>
       <Styled.LogoWrapper>
         {/* <Styled.DotsBackground /> */}
-        <Logo isLoading />
+        <Logo isLoading={isLoading} />
       </Styled.LogoWrapper>
     </Styled.Wrapper>
   );
