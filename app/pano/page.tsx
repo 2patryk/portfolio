@@ -1,4 +1,4 @@
-import PanoNavigation from "@/components/PanoNavigation/PanoNavigation";
+import PanoNavigation from "@/components/organisms/PanoNavigation/PanoNavigation";
 import dynamic from "next/dynamic";
 
 const Pano = dynamic(() => import("@/components/organisms/Pano/Pano"), { ssr: false });
