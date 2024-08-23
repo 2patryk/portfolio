@@ -77,18 +77,4 @@ export const PANO_DATA = [
     country: "Poland",
     slug: "wroclaw-odra",
   },
-  {
-    src: "/images/maczka1.jpg",
-    place: "Maczka 1",
-    region: "Łódź",
-    country: "Poland",
-    slug: "maczka1",
-  },
-  {
-    src: "/images/maczka2.jpg",
-    place: "Maczka 2",
-    region: "Łódź",
-    country: "Poland",
-    slug: "maczka2",
-  },
 ];
