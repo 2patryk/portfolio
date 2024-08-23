@@ -2,6 +2,7 @@ import { createGlobalStyle, css } from "styled-components";
 
 import resetCSS from "./reset";
 import { darkColors, lightColors } from "./theme";
+import { mediaDesktop, mediaTablet } from "./responsive";
 
 const style = css`
   :root {
@@ -41,7 +42,15 @@ const style = css`
   }
 
   html {
-    font-size: 1.6px;
+    font-size: 1px;
+
+    ${mediaTablet(css`
+      font-size: 1.3px;
+    `)};
+
+    ${mediaDesktop(css`
+      font-size: 1.6px;
+    `)};
   }
 
   body {
