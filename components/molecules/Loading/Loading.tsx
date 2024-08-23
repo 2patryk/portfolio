@@ -4,15 +4,15 @@ import * as Styled from "./Loading.styles";
 import Logo from "@/components/atoms/Logo/Logo";
 
 type LoadingProps = {
-  progress: number;
+  isLoading?: boolean;
 };
 
-const Loading: FC<LoadingProps> = ({ progress }) => {
+const Loading: FC<LoadingProps> = ({ isLoading }) => {
   return (
     <Styled.Wrapper>
       <Styled.LogoWrapper>
         {/* <Styled.DotsBackground /> */}
-        <Logo progress={progress} />
+        <Logo isLoading />
       </Styled.LogoWrapper>
     </Styled.Wrapper>
   );

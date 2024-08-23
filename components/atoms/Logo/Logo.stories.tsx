@@ -13,6 +13,7 @@ export const Default: Story = {
     layout: "centered",
   },
   args: {
-    progress: 0.5,
+    isLoading: undefined,
+    onlyShape: false,
   },
 };
