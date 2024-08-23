@@ -3,7 +3,7 @@
 import { FC } from "react";
 
 import * as Styled from "./Header.styles";
-import ColorSchemeSwitch from "../ColorSchemeSwitch/ColorSchemeSwitch";
+import ColorSchemeSwitch from "../../atoms/ColorSchemeSwitch/ColorSchemeSwitch";
 import dynamic from "next/dynamic";
 import { globalCopy } from "@/utils/copy";
 

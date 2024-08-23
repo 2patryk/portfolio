@@ -1,11 +1,11 @@
 import { PANO_DATA } from "@/utils/data";
 import { FC } from "react";
 
-import * as Styled from "./Navigation.styles";
+import * as Styled from "./PanoNavigation.styles";
 
-type NavigationProps = {};
+type PanoNavigationProps = {};
 
-const Navigation: FC<NavigationProps> = () => {
+const PanoNavigation: FC<PanoNavigationProps> = () => {
   return (
     <Styled.Wrapper>
       <ul>
@@ -21,4 +21,4 @@ const Navigation: FC<NavigationProps> = () => {
   );
 };
 
-export default Navigation;
+export default PanoNavigation;

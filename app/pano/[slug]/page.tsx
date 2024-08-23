@@ -1,7 +1,7 @@
 import { PANO_DATA, PanoType } from "@/utils/data";
 import dynamic from "next/dynamic";
 
-const Pano = dynamic(() => import("@/components/Pano/Pano"), { ssr: false });
+const Pano = dynamic(() => import("@/components/organisms/Pano/Pano"), { ssr: false });
 
 type PageParams = {
   slug: string;
