@@ -18,5 +18,7 @@ export const Wrapper = styled.div`
 `;
 
 export const LogoWrapper = styled.div`
-  width: 40rem;
+  margin-left: -10rem;
+  padding: 10rem;
+  width: 60rem;
 `;

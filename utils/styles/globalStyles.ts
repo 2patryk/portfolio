@@ -42,11 +42,7 @@ const style = css`
   }
 
   html {
-    font-size: 1px;
-
-    ${mediaTablet(css`
-      font-size: 1.3px;
-    `)};
+    font-size: 1.3px;
 
     ${mediaDesktop(css`
       font-size: 1.6px;
