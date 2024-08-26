@@ -17,6 +17,9 @@ export const globalCopy = {
         description:
           "I specialise in creating visually stunning web experiences with attention to every detail",
       },
+      about: {
+        label: "About me",
+      },
     },
   },
 };
