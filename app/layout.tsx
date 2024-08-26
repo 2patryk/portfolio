@@ -1,6 +1,6 @@
 "use client";
 
-import { Space_Grotesk, Figtree } from "next/font/google";
+import { Figtree, Syne } from "next/font/google";
 import StyledComponentsRegistry from "../lib/registry";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@/utils/styles/theme";
@@ -11,10 +11,10 @@ import { useGlobalStore } from "@/utils/global.store";
 import { useEffect } from "react";
 import { useTimer } from "use-timer";
 
-const spaceGrotesk = Space_Grotesk({
+const syne = Syne({
   subsets: ["latin"],
   display: "swap",
-  variable: "--space-grotesk",
+  variable: "--syne",
 });
 
 const figtree = Figtree({
@@ -33,7 +33,7 @@ export default function RootLayout({
   useTimer({
     autostart: true,
     initialTime: 0,
-    endTime: 1,
+    endTime: 0,
     timerType: "INCREMENTAL",
     onTimeOver: () => {
       setIsLoading(false);
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      className={`${figtree.variable} ${spaceGrotesk.variable}`}
+      className={`${figtree.variable} ${syne.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: getTheme }} />

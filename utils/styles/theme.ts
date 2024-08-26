@@ -52,7 +52,7 @@ export const theme = {
   ) as Record<ColorNames, string>,
   fonts: {
     text: "var(--figtree)",
-    heading: "var(--space-grotesk)",
+    heading: "var(--syne)",
   },
   spacing: (multiplier: number) => `${multiplier * 8}rem`,
   layout: {

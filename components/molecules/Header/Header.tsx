@@ -4,8 +4,8 @@ import { FC } from "react";
 
 import * as Styled from "./Header.styles";
 import ColorSchemeSwitch from "../../atoms/ColorSchemeSwitch/ColorSchemeSwitch";
-import dynamic from "next/dynamic";
 import { globalCopy } from "@/utils/copy";
+import Logo from "@/components/atoms/Logo/Logo";
 
 type HeaderProps = {};
 
@@ -14,7 +14,9 @@ const Header: FC<HeaderProps> = () => {
 
   return (
     <Styled.Container>
-      {/* <Styled.MaskBackground src="/images/noise.png" /> */}
+      <Styled.MaskBackground>
+        <Logo onlyShape />
+      </Styled.MaskBackground>
       <Styled.Wrapper>
         <Styled.TextBox>
           <Styled.PreTitle>{copy.preTitle}</Styled.PreTitle>

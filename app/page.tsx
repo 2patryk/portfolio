@@ -1,4 +1,4 @@
-import Header from "@/components/molecules/Header/Header";
+import HomePage from "@/containers/HomePage/HomePage";
 import { globalCopy } from "@/utils/copy";
 import { Metadata } from "next";
 
@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
-    <main>
-      <Header />
-    </main>
-  );
+  return <HomePage />;
 }

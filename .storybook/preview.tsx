@@ -5,13 +5,13 @@ import GlobalStyles from "../utils/styles/globalStyles";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 import { ThemeProvider } from "styled-components";
 
-import { Space_Grotesk, Figtree } from "next/font/google";
+import { Figtree, Syne } from "next/font/google";
 import React from "react";
 
-export const spaceGrotesk = Space_Grotesk({
+export const syne = Syne({
   subsets: ["latin"],
   display: "swap",
-  variable: "--space-grotesk",
+  variable: "--syne",
 });
 
 export const figtree = Figtree({
@@ -40,7 +40,7 @@ const preview: Preview = {
       GlobalStyles,
     }),
     (Story) => (
-      <div className={`${figtree.variable} ${spaceGrotesk.variable}`}>
+      <div className={`${figtree.variable} ${syne.variable}`}>
         <Story />
       </div>
     ),
