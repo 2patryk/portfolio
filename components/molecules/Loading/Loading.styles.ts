@@ -13,6 +13,7 @@ export const Wrapper = styled(motion.div)`
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.colors.backgroundExtra};
+  z-index: ${({ theme }) => theme.zIndex.loading};
 `;
 
 Wrapper.defaultProps = {

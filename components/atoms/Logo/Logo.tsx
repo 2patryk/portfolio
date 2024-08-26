@@ -10,9 +10,15 @@ export type LogoProps = {
   isLoading?: boolean;
   onlyShape?: boolean;
   onFinish?: () => void;
+  hasFluidSize?: boolean;
 };
 
-const Logo: FC<LogoProps> = ({ isLoading, onlyShape, onFinish }) => {
+const Logo: FC<LogoProps> = ({
+  isLoading,
+  onlyShape,
+  hasFluidSize,
+  onFinish,
+}) => {
   const isStatic = isLoading === undefined;
   const animationInProgress = useRef(false);
   const controls = useAnimation();
@@ -32,7 +38,7 @@ const Logo: FC<LogoProps> = ({ isLoading, onlyShape, onFinish }) => {
 
   return (
     <>
-      <Styled.Wrapper $hasMask={!isStatic}>
+      <Styled.Wrapper $hasMask={!isStatic} $hasFluidSize={hasFluidSize}>
         {isStatic && !onlyShape ? <SvgLogo /> : <SvgLogoShape />}
         {!isStatic && (
           <Styled.Progress

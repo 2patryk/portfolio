@@ -2,14 +2,14 @@
 
 import { FC } from "react";
 
-import Header from "@/components/molecules/Header/Header";
+import Hero from "@/components/molecules/Hero/Hero";
 
 import * as Styled from "./HomePage.styles";
 
 const HomePage: FC = () => {
   return (
     <Styled.Wrapper>
-      <Header />
+      <Hero />
     </Styled.Wrapper>
   );
 };

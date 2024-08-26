@@ -21,6 +21,10 @@ export type Theme = {
   layout: {
     maxWidth: string;
   };
+  zIndex: {
+    loading: number;
+    header: number;
+  };
 };
 
 export const lightColors: Record<ColorNames, string> = {
@@ -45,7 +49,7 @@ export const darkColors: Record<ColorNames, string> = {
   backgroundExtra: "#212529",
 };
 
-export const theme = {
+export const theme: Theme = {
   colors: Object.keys(lightColors).reduce(
     (a, v) => ({ ...a, [v]: `var(--${v})` }),
     {}
@@ -57,6 +61,10 @@ export const theme = {
   spacing: (multiplier: number) => `${multiplier * 8}rem`,
   layout: {
     maxWidth: `${breakpointDesktop}px`,
+  },
+  zIndex: {
+    loading: 5,
+    header: 4,
   },
 };
 

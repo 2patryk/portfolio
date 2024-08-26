@@ -7,10 +7,13 @@ export const globalCopy = {
     projects: "Projects",
     contact: "Contact",
   },
-  header: {
-    preTitle: "Hi there, I'm",
-    title: "Patryk Ordon",
-    postTitle: "Creative Frontend Developer",
+  hero: {
+    preName: "Hi there, I'm",
+    name: "Patryk Ordon",
+    prePosition: "a",
+    position: "Creative Frontend Developer",
+    description:
+      "I specialise in creating visually stunning web experiences with attention to every detail",
   },
 };
 

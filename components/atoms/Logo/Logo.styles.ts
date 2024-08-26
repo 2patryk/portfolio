@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div<{
   $hasMask?: boolean;
+  $hasFluidSize?: boolean;
 }>`
   position: relative;
   width: 100rem;
@@ -15,6 +16,13 @@ export const Wrapper = styled.div<{
       mask-image: url("/images/logo.svg");
       mask-position: center center;
       mask-repeat: no-repeat;
+    `};
+
+  ${({ $hasFluidSize }) =>
+    $hasFluidSize &&
+    css`
+      width: 100%;
+      height: 100%;
     `};
 `;
 
