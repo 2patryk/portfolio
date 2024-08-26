@@ -1,4 +1,6 @@
+import { RuleSet } from "styled-components";
 import { breakpointDesktop } from "../vars";
+import { processTypography } from "./mixins";
 
 export enum ColorNames {
   primary = "primary",
@@ -11,12 +13,44 @@ export enum ColorNames {
   backgroundExtra = "backgroundExtra",
 }
 
+export enum Font {
+  figtree = "var(--figtree)",
+  syne = "var(--syne)",
+}
+
+export type Typography = {
+  fontFamily: Font;
+  size: number; // rem
+  lineHeight?: number;
+  fontWeight?: number;
+};
+
+export const typography = {
+  h1: {
+    fontFamily: Font.syne,
+    size: 36,
+    fontWeight: 400,
+  },
+  h2: {
+    fontFamily: Font.syne,
+    size: 20,
+    fontWeight: 750,
+  },
+  h3: {
+    fontFamily: Font.syne,
+    size: 18,
+    fontWeight: 400,
+  },
+  body: {
+    fontFamily: Font.figtree,
+    size: 12,
+    fontWeight: 400,
+  },
+} satisfies Record<string, Typography>;
+
 export type Theme = {
   colors: Record<ColorNames, string>;
-  fonts: {
-    text: string;
-    heading: string;
-  };
+  fonts: Record<keyof typeof Font, string>;
   spacing: (multiplier: number) => string;
   layout: {
     maxWidth: string;
@@ -25,6 +59,7 @@ export type Theme = {
     loading: number;
     header: number;
   };
+  typography: (name: keyof typeof typography) => RuleSet<object>;
 };
 
 export const lightColors: Record<ColorNames, string> = {
@@ -54,11 +89,7 @@ export const theme: Theme = {
     (a, v) => ({ ...a, [v]: `var(--${v})` }),
     {}
   ) as Record<ColorNames, string>,
-  fonts: {
-    text: "var(--figtree)",
-    heading: "var(--syne)",
-  },
-  spacing: (multiplier: number) => `${multiplier * 8}rem`,
+  spacing: (multiplier) => `${multiplier * 8}rem`,
   layout: {
     maxWidth: `${breakpointDesktop}px`,
   },
@@ -66,6 +97,11 @@ export const theme: Theme = {
     loading: 5,
     header: 4,
   },
+  fonts: {
+    figtree: Font.figtree,
+    syne: Font.syne,
+  },
+  typography: (name) => processTypography(typography[name]),
 };
 
 export const lightTheme = { ...theme, colors: lightColors };

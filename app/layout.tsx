@@ -8,8 +8,9 @@ import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
 import Loading from "@/components/molecules/Loading/Loading";
 import { useGlobalStore } from "@/utils/global.store";
-import { useTimer } from "use-timer";
+// import { useTimer } from "use-timer";
 import Header from "@/components/molecules/Header/Header";
+import { useEffect } from "react";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -30,15 +31,19 @@ export default function RootLayout({
 }) {
   const { isLoading, setIsLoading } = useGlobalStore();
 
-  useTimer({
-    autostart: true,
-    initialTime: 0,
-    endTime: 0,
-    timerType: "INCREMENTAL",
-    onTimeOver: () => {
-      setIsLoading(false);
-    },
-  });
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
+  // useTimer({
+  //   autostart: true,
+  //   initialTime: 0,
+  //   endTime: 0,
+  //   timerType: "INCREMENTAL",
+  //   onTimeOver: () => {
+  //     setIsLoading(false);
+  //   },
+  // });
 
   return (
     <html
@@ -49,7 +54,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: getTheme }} />
       </head>
       <body>
-      <StyledComponentsRegistry>
+        <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Header />

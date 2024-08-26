@@ -1,6 +1,7 @@
 import { css } from "styled-components";
 import { mediaDesktop, mediaTablet } from "./responsive";
 import { breakpointDesktop, breakpointTablet } from "../vars";
+import { Typography } from "./theme";
 
 export const layoutView = css`
   width: 100%;
@@ -13,4 +14,19 @@ export const layoutView = css`
       ${breakpointDesktop}px - ${({ theme }) => theme.spacing(4)}
     );
   `)}
+`;
+
+export const processTypography = (typography: Typography) => css`
+  font-family: ${typography.fontFamily};
+  font-size: ${typography.size}rem;
+
+  ${typography.fontWeight &&
+  css`
+    font-weight: ${typography.fontWeight};
+  `};
+
+  ${typography.lineHeight &&
+  css`
+    line-height: ${typography.lineHeight};
+  `};
 `;

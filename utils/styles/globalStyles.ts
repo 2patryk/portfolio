@@ -50,10 +50,10 @@ const style = css`
   }
 
   body {
+    ${({ theme }) => theme.typography("body")};
+
     color: ${({ theme }) => theme.colors.textPrimary};
     background-color: ${({ theme }) => theme.colors.background};
-    font-family: ${({ theme }) => theme.fonts.text};
-    font-size: 20rem;
   }
 
   button,

@@ -7,13 +7,17 @@ export const globalCopy = {
     projects: "Projects",
     contact: "Contact",
   },
-  hero: {
-    preName: "Hi there, I'm",
-    name: "Patryk Ordon",
-    prePosition: "a",
-    position: "Creative Frontend Developer",
-    description:
-      "I specialise in creating visually stunning web experiences with attention to every detail",
+  pages: {
+    home: {
+      hero: {
+        preName: "Hi there, I'm",
+        name: "Patryk Ordon",
+        prePosition: "a",
+        position: "Creative Frontend Developer",
+        description:
+          "I specialise in creating visually stunning web experiences with attention to every detail",
+      },
+    },
   },
 };
 

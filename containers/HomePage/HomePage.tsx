@@ -11,7 +11,7 @@ const HomePage: FC = () => {
   return (
     <Styled.Wrapper>
       <Hero />
-      {/* <Section heading="About me">TEST</Section> */}
+      <Section heading="About me">TEST</Section>
     </Styled.Wrapper>
   );
 };

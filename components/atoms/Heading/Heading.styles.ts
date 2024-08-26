@@ -2,9 +2,7 @@ import { mediaTablet } from "@/utils/styles/responsive";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-weight: 750;
-  font-size: 20rem;
+  ${({ theme }) => theme.typography("h2")};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing(2)};

@@ -19,24 +19,18 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 36rem;
-  font-weight: 400;
+  ${({ theme }) => theme.typography("h1")};
   transform-origin: left center;
 `;
 
 export const Position = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 18rem;
-  font-weight: 400;
+  ${({ theme }) => theme.typography("h3")};
   white-space: pre-wrap;
   margin-bottom: ${({ theme }) => theme.spacing(6)};
 `;
 
 export const Description = styled.p`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-weight: 400;
-  font-size: 12rem;
+  ${({ theme }) => theme.typography("body")};
   max-width: 230rem;
 `;
 

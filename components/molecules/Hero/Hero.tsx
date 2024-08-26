@@ -9,7 +9,7 @@ import Logo from "@/components/atoms/Logo/Logo";
 type HeroProps = {};
 
 const Hero: FC<HeroProps> = () => {
-  const copy = globalCopy.hero;
+  const copy = globalCopy.pages.home.hero;
 
   return (
     <Styled.Container>
