@@ -9,9 +9,10 @@ import { logoAnimationsVariants } from "./Logo.utils";
 export type LogoProps = {
   isLoading?: boolean;
   onlyShape?: boolean;
+  onFinish?: () => void;
 };
 
-const Logo: FC<LogoProps> = ({ isLoading, onlyShape }) => {
+const Logo: FC<LogoProps> = ({ isLoading, onlyShape, onFinish }) => {
   const isStatic = isLoading === undefined;
   const animationInProgress = useRef(false);
   const controls = useAnimation();
@@ -44,6 +45,9 @@ const Logo: FC<LogoProps> = ({ isLoading, onlyShape }) => {
                   return controls.start("finished");
                 }
                 return controls.start("loading");
+              }
+              if (anim === "finished") {
+                onFinish && onFinish();
               }
             }}
           />

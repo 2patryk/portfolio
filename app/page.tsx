@@ -1,3 +1,4 @@
+import Header from "@/components/molecules/Header/Header";
 import { globalCopy } from "@/utils/copy";
 import { Metadata } from "next";
 
@@ -6,8 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return null;
-  // <main>
-  //   <Header />
-  // </main>
+  return (
+    <main>
+      <Header />
+    </main>
+  );
 }

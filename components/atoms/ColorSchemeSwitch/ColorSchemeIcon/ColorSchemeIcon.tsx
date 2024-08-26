@@ -10,7 +10,6 @@ import {
 
 export interface ColorSchemeIconProps {
   isDark: boolean;
-  isHovered: boolean;
 }
 
 // const animationsSequenceSwitchToNight: AnimationSequence = [
@@ -39,35 +38,7 @@ export interface ColorSchemeIconProps {
 //   ],
 // ];
 
-const ColorSchemeIcon: React.FC<ColorSchemeIconProps> = ({
-  isDark,
-  isHovered,
-}) => {
-  // const [scope, animate] = useAnimate();
-  // const controls = useRef<AnimationPlaybackControls | null>(null);
-  // const currentAnim = useRef<"switch" | "switch-to-night" | "switch-to-day">(
-  //   null
-  // );
-
-  // useEffect(() => {
-  //   // controls.current = animate(animationsSequenceSwitchToDay);
-  //   console.log(controls.current);
-  // }, [animate]);
-
-  // useEffect(() => {
-  //   if (!isHovered) {
-  //     if (isDark) {
-  //       controls.current = animate(animationsSequenceSwitchToNight, {
-  //         duration: 0,
-  //       });
-  //     } else {
-  //       controls.current = animate(animationsSequenceSwitchToDay, {
-  //         duration: 0,
-  //       });
-  //     }
-  //   }
-  // }, [animate, isDark, isHovered]);
-
+const ColorSchemeIcon: React.FC<ColorSchemeIconProps> = ({ isDark }) => {
   return (
     <Styled.Wrapper
       version="1.1"

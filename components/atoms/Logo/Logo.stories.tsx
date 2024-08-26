@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from '@storybook/test';
 import Logo from "./Logo";
 
 const meta: Meta<typeof Logo> = {
@@ -15,5 +16,6 @@ export const Default: Story = {
   args: {
     isLoading: undefined,
     onlyShape: false,
+    onFinish: fn()
   },
 };

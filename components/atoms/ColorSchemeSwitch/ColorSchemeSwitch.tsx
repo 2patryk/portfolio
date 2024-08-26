@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import * as Ariakit from "@ariakit/react";
 import * as Styled from "./ColorSchemeSwitch.styles";
 import ColorSchemeIcon from "./ColorSchemeIcon/ColorSchemeIcon";
-import useHover from "@/hooks/useHover";
+// import useHover from "@/hooks/useHover";
 
 export interface ColorSchemeSwitchProps {}
 
@@ -13,7 +13,6 @@ const ColorSchemeSwitch: React.FC<ColorSchemeSwitchProps> = () => {
   const [focusVisible, setFocusVisible] = useState(false);
   const isDark = theme === "dark";
   const [checked, setChecked] = useState(isDark ?? false);
-  const [hoverRef, isHovered] = useHover<HTMLLabelElement>();
 
   const toggleTheme = () => {
     global.window?.__setPreferredTheme(theme === "light" ? "dark" : "light");
@@ -29,7 +28,6 @@ const ColorSchemeSwitch: React.FC<ColorSchemeSwitchProps> = () => {
       data-checked={checked}
       data-focus-visible={focusVisible || undefined}
       suppressHydrationWarning
-      ref={hoverRef}
     >
       <Ariakit.VisuallyHidden>
         <Ariakit.Checkbox
@@ -43,7 +41,7 @@ const ColorSchemeSwitch: React.FC<ColorSchemeSwitchProps> = () => {
         />
       </Ariakit.VisuallyHidden>
       <Styled.IconWrapper>
-        <ColorSchemeIcon isDark={isDark} isHovered={isHovered} />
+        <ColorSchemeIcon isDark={isDark} />
       </Styled.IconWrapper>
     </Styled.Label>
   );

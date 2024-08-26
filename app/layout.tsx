@@ -1,12 +1,15 @@
 "use client";
 
-import { Inter, Space_Grotesk, Figtree } from "next/font/google";
+import { Space_Grotesk, Figtree } from "next/font/google";
 import StyledComponentsRegistry from "../lib/registry";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@/utils/styles/theme";
 import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
 import Loading from "@/components/molecules/Loading/Loading";
+import { useGlobalStore } from "@/utils/global.store";
+import { useEffect } from "react";
+import { useTimer } from "use-timer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -20,16 +23,23 @@ const figtree = Figtree({
   variable: "--figtree",
 });
 
-// export const metadata: Metadata = {
-//   title: "Patryk Ordon site",
-//   description: "---",
-// };
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { isLoading, setIsLoading } = useGlobalStore();
+
+  useTimer({
+    autostart: true,
+    initialTime: 0,
+    endTime: 1,
+    timerType: "INCREMENTAL",
+    onTimeOver: () => {
+      setIsLoading(false);
+    },
+  });
+
   return (
     <html
       suppressHydrationWarning
@@ -43,7 +53,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             {children}
-            <Loading isLoading />
+            <Loading isLoading={isLoading} />
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
