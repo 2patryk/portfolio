@@ -44,7 +44,7 @@ export const typography = {
   body: {
     fontFamily: Font.figtree,
     size: 12,
-    fontWeight: 400,
+    fontWeight: 300,
   },
 } satisfies Record<string, Typography>;
 
