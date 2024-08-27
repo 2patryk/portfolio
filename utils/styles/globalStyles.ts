@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from "styled-components";
 
 import resetCSS from "./reset";
 import { darkColors, lightColors } from "./theme";
-import { mediaDesktop, mediaTablet } from "./responsive";
+import { mediaDesktop, mediaDesktopSmall, mediaTablet } from "./responsive";
 
 const style = css`
   :root {
@@ -24,14 +24,14 @@ const style = css`
   }
 
   ::selection {
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.backgroundExtra};
     color: ${({ theme }) => theme.colors.textInverted};
     text-shadow: none;
   }
 
   ::-moz-selection {
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textInverted};
+    background: ${({ theme }) => theme.colors.backgroundExtra};
+  color: ${({ theme }) => theme.colors.textInverted};
     text-shadow: none;
   }
 
@@ -42,9 +42,9 @@ const style = css`
   }
 
   html {
-    font-size: 1.3px;
+    font-size: 1.25px;
 
-    ${mediaDesktop(css`
+    ${mediaDesktopSmall(css`
       font-size: 1.6px;
     `)};
   }

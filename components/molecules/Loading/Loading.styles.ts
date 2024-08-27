@@ -20,8 +20,8 @@ Wrapper.defaultProps = {
   exit: {
     y: "-100%",
     transition: {
-      delay: 0.4,
-      duration: 0.7,
+      delay: 0.2,
+      duration: 0.6,
       ease: "easeInOut",
     },
   },

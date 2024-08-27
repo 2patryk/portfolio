@@ -1,6 +1,6 @@
 import { css } from "styled-components";
-import { mediaDesktop, mediaTablet } from "./responsive";
-import { breakpointDesktop, breakpointTablet } from "../vars";
+import { mediaDesktop } from "./responsive";
+import { breakpointDesktop } from "../vars";
 import { Typography } from "./theme";
 
 export const layoutView = css`

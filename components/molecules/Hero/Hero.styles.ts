@@ -1,10 +1,15 @@
 import { layoutView } from "@/utils/styles/mixins";
-import styled from "styled-components";
+import { mediaTablet } from "@/utils/styles/responsive";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 500rem;
   position: relative;
+  width: 100%;
+  height: 600rem;
+
+  ${mediaTablet(css`
+    height: 500rem;
+  `)}
 `;
 
 export const Wrapper = styled.div`
@@ -59,16 +64,16 @@ export const MaskBackground = styled.div`
   opacity: 0.05;
   pointer-events: none;
   overflow: hidden;
+  mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 
   > div {
-    bottom: -70rem;
+    bottom: -100rem;
     width: 550rem;
     height: auto;
     flex-shrink: 0;
-    mask-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 100%
-    );
+
+    ${mediaTablet(css`
+      bottom: -70rem;
+    `)}
   }
 `;

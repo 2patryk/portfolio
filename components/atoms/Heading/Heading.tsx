@@ -7,7 +7,7 @@ type HeadingProps = {
 };
 
 const Heading: FC<HeadingProps> = ({ label }) => {
-  return <Styled.Wrapper>{label} </Styled.Wrapper>;
+  return <Styled.Wrapper>{label}</Styled.Wrapper>;
 };
 
 export default Heading;

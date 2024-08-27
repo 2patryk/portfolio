@@ -27,7 +27,7 @@ const Logo: FC<LogoProps> = ({
     if (!isStatic) {
       if (isLoading) {
         animationInProgress.current = true;
-        controls.start("loading");
+        controls.start("finished"); // TODO: Update to loading if needed
       } else {
         if (!animationInProgress.current) {
           controls.start("finished");

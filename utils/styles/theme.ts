@@ -30,6 +30,7 @@ export const typography = {
     fontFamily: Font.syne,
     size: 36,
     fontWeight: 400,
+    lineHeight: 1.2,
   },
   h2: {
     fontFamily: Font.syne,
@@ -41,10 +42,23 @@ export const typography = {
     size: 18,
     fontWeight: 400,
   },
+  h4: {
+    fontFamily: Font.syne,
+    size: 14,
+    fontWeight: 720,
+    lineHeight: 1,
+  },
+  h5: {
+    fontFamily: Font.syne,
+    size: 12,
+    fontWeight: 720,
+    lineHeight: 1,
+  },
   body: {
     fontFamily: Font.figtree,
-    size: 12,
+    size: 11.5,
     fontWeight: 300,
+    lineHeight: 1.4,
   },
 } satisfies Record<string, Typography>;
 

@@ -11,7 +11,6 @@ export const logoAnimationsVariants: Variants = {
       "polygon(0 0%, 100% 0%, 100% 0%, 0% 0%)",
     ],
     transition: {
-      delay: 0.2,
       duration: 1,
       ease: "easeInOut",
     },

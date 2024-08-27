@@ -20,6 +20,14 @@ export const mediaTablet = (content: MediaContent) =>
     }
   `;
 
+export const mqDesktopSmall = `(min-width: ${VARS.breakpointDesktopSmall}px)`;
+export const mediaDesktopSmall = (content: MediaContent) =>
+  css`
+    @media ${mqDesktopSmall} {
+      ${content}
+    }
+  `;
+
 export const mqDesktop = `(min-width: ${VARS.breakpointDesktop}px)`;
 export const mediaDesktop = (content: MediaContent) =>
   css`
