@@ -11,6 +11,8 @@ import { useGlobalStore } from "@/utils/global.store";
 // import { useTimer } from "use-timer";
 import Header from "@/components/molecules/Header/Header";
 import { useEffect } from "react";
+import { GoogleTagManager } from '@next/third-parties/google'
+
 
 const syne = Syne({
   subsets: ["latin"],
@@ -63,6 +65,7 @@ export default function RootLayout({
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
+      <GoogleTagManager gtmId="GTM-KC2B5VWR" />
     </html>
   );
 }
