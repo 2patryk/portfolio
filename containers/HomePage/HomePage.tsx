@@ -33,12 +33,12 @@ const HomePage: FC = () => {
           <Styled.Background />
           <Styled.ProjectsContent>
             <ProjectTile project={globalCopy.projects.ask} />
-            <ProjectTile />
-            <ProjectTile />
-            <ProjectTile />
-            <ProjectTile />
-            <ProjectTile />
-            <ProjectTile />
+            <ProjectTile project={globalCopy.projects.mtd} />
+            <ProjectTile project={globalCopy.projects.jj} />
+            <ProjectTile project={globalCopy.projects.slimjim} />
+            <ProjectTile project={globalCopy.projects.wimbledon} />
+            <ProjectTile project={globalCopy.projects.riot} />
+            <ProjectTile project={globalCopy.projects.fh} />
           </Styled.ProjectsContent>
         </Styled.ProjectsWrapper>
       </Section> */}

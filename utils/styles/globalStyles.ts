@@ -21,6 +21,8 @@ const style = css`
     padding: 0;
     outline: none;
     user-select: text;
+    transition:
+      background-color 0.4s ease-in-out;
   }
 
   ::selection {
@@ -31,7 +33,7 @@ const style = css`
 
   ::-moz-selection {
     background: ${({ theme }) => theme.colors.backgroundExtra};
-  color: ${({ theme }) => theme.colors.textInverted};
+    color: ${({ theme }) => theme.colors.textInverted};
     text-shadow: none;
   }
 

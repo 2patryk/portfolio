@@ -10,6 +10,7 @@ type HeaderProps = {};
 const Header: FC = () => {
   return (
     <Styled.Container>
+      <Styled.Background />
       <Styled.Wrapper>
         <Link href="/">
           <Styled.LogoWrapper>

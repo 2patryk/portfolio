@@ -7,12 +7,23 @@ export const Container = styled.header`
   top: 0;
   left: 0;
   z-index: ${({ theme }) => theme.zIndex.header};
-  background: linear-gradient(
+  /* background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 0%,
     ${({ theme }) => theme.colors.background} 100%
-  );
+  ); */
   pointer-events: none;
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.background};
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  z-index: -1;
 `;
 
 export const Wrapper = styled.div`

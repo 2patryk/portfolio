@@ -68,7 +68,7 @@ export const ProjectsWrapper = styled.div`
 `;
 
 export const Background = styled.div`
-  position: absolute;
+  position: fixed;
   /* top: -50rem; */
   top: 0;
   left: 0;
@@ -77,7 +77,7 @@ export const Background = styled.div`
   height: 100%;
   z-index: -1;
   object-fit: cover;
-  background-color: yellow;
+  /* background-color: yellow; */
   mask-image: url("/images/dot.svg");
   mask-size: 5rem;
   mask-repeat: repeat;
@@ -99,9 +99,9 @@ export const ProjectsContent = styled.div`
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(5, minmax(0, 250rem));
 
-    & > div:nth-child(1),
-    & > div:nth-child(4),
-    & > div:nth-child(7) {
+    & > a:nth-child(1),
+    & > a:nth-child(4),
+    & > a:nth-child(7) {
       grid-column: span 2;
     }
   `)}
@@ -110,7 +110,7 @@ export const ProjectsContent = styled.div`
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 250rem));
 
-    & > div:nth-child(7) {
+    & > a:nth-child(7) {
       grid-column: unset;
     }
   `)}
