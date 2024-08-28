@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useMemo } from "react";
 
 import Hero from "@/components/molecules/Hero/Hero";
 
@@ -8,12 +8,15 @@ import * as Styled from "./HomePage.styles";
 import Section from "@/components/atoms/Section/Section";
 import { globalCopy } from "@/utils/copy";
 import Counter from "@/components/atoms/Counter/Counter";
-import Highlight from "@/components/atoms/Highlight/Highlight";
-import Image from "next/image";
-import ProjectTile from "@/components/atoms/ProjectTile/ProjectTile";
+import ProjectsGrid from "@/components/organisms/ProjectsGrid/ProjectsGrid";
+import { projectsOrder } from "@/utils/config";
 
 const HomePage: FC = () => {
   const copy = globalCopy.pages.home;
+  const projects = useMemo(
+    () => projectsOrder.map((project) => globalCopy.projects[project]),
+    []
+  );
 
   return (
     <Styled.Wrapper>
@@ -29,18 +32,9 @@ const HomePage: FC = () => {
         </Styled.AboutWrapper>
       </Section>
       {/* <Section heading={copy.projects.label}>
-        <Styled.ProjectsWrapper>
-          <Styled.Background />
-          <Styled.ProjectsContent>
-            <ProjectTile project={globalCopy.projects.ask} />
-            <ProjectTile project={globalCopy.projects.mtd} />
-            <ProjectTile project={globalCopy.projects.jj} />
-            <ProjectTile project={globalCopy.projects.slimjim} />
-            <ProjectTile project={globalCopy.projects.wimbledon} />
-            <ProjectTile project={globalCopy.projects.riot} />
-            <ProjectTile project={globalCopy.projects.fh} />
-          </Styled.ProjectsContent>
-        </Styled.ProjectsWrapper>
+        <Styled.ProjectsGridWrapper>
+          <ProjectsGrid projects={projects} />
+        </Styled.ProjectsGridWrapper>
       </Section> */}
       <Section heading={copy.contact.label}>
         <Styled.Contact>

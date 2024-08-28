@@ -1,9 +1,14 @@
+import { Project } from "../config";
 import { metaCopy } from "./meta";
 
-export type Project = {
+export type ProjectCopy = {
   company: string;
   name: string;
   shortname?: string;
+  colors?: {
+    primary: string;
+    secondary: string;
+  };
   alts: {
     background: string;
   };
@@ -26,6 +31,10 @@ export const globalCopy = {
       company: "UNIT9",
       name: "MTV: Acknowledge, Support, Keep-in-Touch (A.S.K.)",
       shortname: "MTV A.S.K.",
+      colors: {
+        primary: "#bc947c",
+        secondary: "#9e92a7",
+      },
       alts: {
         background: "MTV A.S.K. background",
       },
@@ -35,6 +44,10 @@ export const globalCopy = {
       company: "UNIT9",
       name: "Mountain Dew: Raid",
       shortname: "MTN DEW: Raid",
+      colors: {
+        primary: "#048c04",
+        secondary: "#020301",
+      },
       alts: {
         background: "Mountain Dew: Raid background",
       },
@@ -43,6 +56,10 @@ export const globalCopy = {
     slimjim: {
       company: "UNIT9",
       name: "Slim Jim: Meataverse",
+      colors: {
+        primary: "#080c84",
+        secondary: "#f9c919",
+      },
       alts: {
         background: "Slim Jim: Meataverse background",
       },
@@ -52,6 +69,10 @@ export const globalCopy = {
       company: "UNIT9",
       name: "Johnson & Johnson: All Sci No Fi",
       shortname: "J&J: All Sci No Fi",
+      colors: {
+        primary: "#47649c",
+        secondary: "#20242c",
+      },
       alts: {
         background: "Johnson & Johnson: All Sci No Fi background",
       },
@@ -61,6 +82,10 @@ export const globalCopy = {
       company: "UNIT9",
       name: "Vodafone's Wimbledon Walk of Champions",
       shortname: "Vodafone's Wimbledon",
+      colors: {
+        primary: "#849843",
+        secondary: "#c4c4b4",
+      },
       alts: {
         background: "Wimbledon background",
       },
@@ -70,6 +95,10 @@ export const globalCopy = {
       company: "UNIT9",
       name: "League of Legends: Wild Rift - Legends of the Rift",
       shortname: "LOL: Wild Rift",
+      colors: {
+        secondary: "#cfbdaa",
+        primary: "#945833",
+      },
       alts: {
         background: "League of Legends: Wild Rift background",
       },
@@ -79,12 +108,16 @@ export const globalCopy = {
       company: "LIKI MS",
       name: "Frontend House: company website",
       shortname: "Frontend House",
+      colors: {
+        secondary: "#600cfa",
+        primary: "#090431",
+      },
       alts: {
         background: "Frontend House background",
       },
       background: "/images/projects/fh/fh-background.png",
     },
-  } satisfies Record<string, Project>,
+  } satisfies Record<Project, ProjectCopy>,
   pages: {
     home: {
       hero: {

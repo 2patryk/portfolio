@@ -39,7 +39,7 @@ export const Description = styled.p`
   max-width: 230rem;
 `;
 
-export const Bold = styled.span`
+export const Bold = styled.b`
   font-weight: 700;
 `;
 
