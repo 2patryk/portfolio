@@ -9,6 +9,8 @@ import Section from "@/components/atoms/Section/Section";
 import { globalCopy } from "@/utils/copy";
 import Counter from "@/components/atoms/Counter/Counter";
 import Highlight from "@/components/atoms/Highlight/Highlight";
+import Image from "next/image";
+import ProjectTile from "@/components/atoms/ProjectTile/ProjectTile";
 
 const HomePage: FC = () => {
   const copy = globalCopy.pages.home;
@@ -27,7 +29,18 @@ const HomePage: FC = () => {
         </Styled.AboutWrapper>
       </Section>
       {/* <Section heading={copy.projects.label}>
-        <></>
+        <Styled.ProjectsWrapper>
+          <Styled.Background />
+          <Styled.ProjectsContent>
+            <ProjectTile project={globalCopy.projects.ask} />
+            <ProjectTile />
+            <ProjectTile />
+            <ProjectTile />
+            <ProjectTile />
+            <ProjectTile />
+            <ProjectTile />
+          </Styled.ProjectsContent>
+        </Styled.ProjectsWrapper>
       </Section> */}
       <Section heading={copy.contact.label}>
         <Styled.Contact>

@@ -14,7 +14,7 @@ export const Count = styled.span`
   flex-shrink: 0;
 `;
 
-export const Label = styled.label`
+export const Label = styled.span`
   white-space: pre-wrap;
   flex-shrink: 0;
 `;

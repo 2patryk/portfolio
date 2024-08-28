@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Label = styled.label`
   display: block;
-  width: 32rem;
-  height: 32rem;
-  padding: 4rem;
+  width: 22rem;
+  height: 22rem;
+  padding: 3rem;
   cursor: pointer;
 `;
 
 export const IconWrapper = styled.div`
-  width: 24rem;
-  height: 24rem;
+  width: 16rem;
+  height: 16rem;
   color: ${({ theme }) => theme.colors.textPrimary};
 `;

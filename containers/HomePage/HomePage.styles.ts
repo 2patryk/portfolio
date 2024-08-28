@@ -1,4 +1,5 @@
-import { mediaTablet } from "@/utils/styles/responsive";
+import { fluidView, layoutView } from "@/utils/styles/mixins";
+import { mediaDesktop, mediaTablet } from "@/utils/styles/responsive";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.main`
@@ -59,4 +60,58 @@ export const Contact = styled.p`
   a:hover {
     opacity: 0.7;
   }
+`;
+
+export const ProjectsWrapper = styled.div`
+  position: relative;
+  ${fluidView};
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  /* top: -50rem; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: calc(100% + 100rem); */
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  background-color: yellow;
+  mask-image: url("/images/dot.svg");
+  mask-size: 5rem;
+  mask-repeat: repeat;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const ProjectsContent = styled.div`
+  ${layoutView};
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(7, minmax(0, 250rem));
+  gap: ${({ theme }) => theme.spacing(2)};
+
+  ${mediaTablet(css`
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 250rem));
+
+    & > div:nth-child(1),
+    & > div:nth-child(4),
+    & > div:nth-child(7) {
+      grid-column: span 2;
+    }
+  `)}
+
+  ${mediaDesktop(css`
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 250rem));
+
+    & > div:nth-child(7) {
+      grid-column: unset;
+    }
+  `)}
 `;

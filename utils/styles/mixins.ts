@@ -16,6 +16,19 @@ export const layoutView = css`
   `)}
 `;
 
+export const fluidView = css`
+  width: 100vw;
+  margin: 0 ${({ theme }) => theme.spacing(-2)};
+
+  ${mediaDesktop(css`
+    margin: 0
+      calc(
+        (100vw - (${breakpointDesktop}px - ${({ theme }) => theme.spacing(4)})) /
+          -2
+      );
+  `)}
+`;
+
 export const processTypography = (typography: Typography) => css`
   font-family: ${typography.fontFamily};
   font-size: ${typography.size}rem;

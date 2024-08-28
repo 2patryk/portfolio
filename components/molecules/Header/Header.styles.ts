@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20rem 0 60rem;
+  padding: 20rem 0;
 
   a,
   label,
@@ -32,5 +32,5 @@ export const Wrapper = styled.div`
 export const LogoWrapper = styled.div`
   margin-left: -10rem;
   padding: 10rem;
-  width: 60rem;
+  width: 50rem;
 `;
