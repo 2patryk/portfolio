@@ -1,22 +1,30 @@
 import { layoutView } from "@/utils/styles/mixins";
-import styled from "styled-components";
+import { mediaTablet } from "@/utils/styles/responsive";
+import Link from "next/link";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.footer`
   ${layoutView};
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing(7)} 0
-    ${({ theme }) => theme.spacing(4)};
+    ${({ theme }) => theme.spacing(7)};
+  gap: ${({ theme }) => theme.spacing(1.5)};
+
+  ${mediaTablet(css`
+    padding: ${({ theme }) => theme.spacing(7)} 0
+      ${({ theme }) => theme.spacing(4)};
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  `)}
 `;
 
-export const LogoWrapper = styled.div`
-  width: 12rem;
+export const LogoWrapper = styled(Link)`
+  width: 16rem;
+  padding: 2rem;
   display: inline-block;
-  margin: 0 2rem;
-  margin-bottom: -1.4rem;
+  margin-bottom: -3.4rem;
 `;
-
-export const Copyrights = styled.span``;
-
-export const LastUpdate = styled.span``;

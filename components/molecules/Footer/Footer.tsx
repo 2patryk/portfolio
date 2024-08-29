@@ -9,17 +9,17 @@ export type FooterProps = {};
 const Footer: FC<FooterProps> = () => {
   return (
     <Styled.Wrapper>
-      <Styled.Copyrights>
+      <span>
         © {new Date().getFullYear()}{" "}
-        <Styled.LogoWrapper>
+        <Styled.LogoWrapper href="/">
           <Logo hasFluidSize />
         </Styled.LogoWrapper>{" "}
         {globalCopy.global.name}
-      </Styled.Copyrights>
+      </span>
 
-      <Styled.LastUpdate>
+      <span>
         {globalCopy.footer.lastUpdate}: {globalCopy.global.lastUpdate}
-      </Styled.LastUpdate>
+      </span>
     </Styled.Wrapper>
   );
 };
