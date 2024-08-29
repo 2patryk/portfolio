@@ -5,11 +5,13 @@ import ColorSchemeSwitch from "@/components/atoms/ColorSchemeSwitch/ColorSchemeS
 import Logo from "@/components/atoms/Logo/Logo";
 import Link from "next/link";
 
-type HeaderProps = {};
+export type HeaderProps = {
+  overrideTheme?: "light" | "dark";
+};
 
-const Header: FC = () => {
+const Header: FC<HeaderProps> = ({ overrideTheme }) => {
   return (
-    <Styled.Container>
+    <Styled.Container $overrideTheme={overrideTheme}>
       <Styled.Background />
       <Styled.Wrapper>
         <Link href="/">

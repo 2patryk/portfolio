@@ -9,9 +9,10 @@ export enum ColorNames {
   textPrimary = "textPrimary",
   textSecondary = "textSecondary",
   textInverted = "textInverted",
-  textConstant = "textConstant",
   background = "background",
   backgroundExtra = "backgroundExtra",
+  light = "light",
+  dark = "dark",
 }
 
 export enum Font {
@@ -30,6 +31,12 @@ export const typography = {
   h1: {
     fontFamily: Font.syne,
     size: 36,
+    fontWeight: 400,
+    lineHeight: 1.2,
+  },
+  h1Extra: {
+    fontFamily: Font.syne,
+    size: 28,
     fontWeight: 400,
     lineHeight: 1.2,
   },
@@ -90,9 +97,10 @@ export const lightColors: Record<ColorNames, string> = {
   textPrimary: "#081C15",
   textSecondary: "#1B4332",
   textInverted: "#B7E4C7",
-  textConstant: "#D8F3DC",
   background: "#e5e1dd",
   backgroundExtra: "#ddd8d2",
+  light: "#D8F3DC",
+  dark: "#1a1d20",
 };
 
 export const darkColors: Record<ColorNames, string> = {
@@ -102,9 +110,10 @@ export const darkColors: Record<ColorNames, string> = {
   textPrimary: "#D8F3DC",
   textSecondary: "#95D5B2",
   textInverted: "#1B4332",
-  textConstant: "#D8F3DC",
   background: "#1a1d20",
   backgroundExtra: "#212529",
+  light: "#D8F3DC",
+  dark: "#1a1d20",
 };
 
 export const theme: Theme = {

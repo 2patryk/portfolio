@@ -20,7 +20,8 @@ const ProjectTile: FC<ProjectTileProps> = ({
 }) => {
   return (
     <Styled.Wrapper
-      href={`${ROUTES.PROJECTS}/${getSlug(project.name)}` as any}
+      // href={`${ROUTES.PROJECTS}/${getSlug(project.name)}` as any}
+      href="https://www.linkedin.com/in/patrykordon/details/projects/"
       onMouseEnter={onHover ? () => onHover(true) : undefined}
       onMouseLeave={onHover ? () => onHover(false) : undefined}
       $isInBackground={isInBackground}

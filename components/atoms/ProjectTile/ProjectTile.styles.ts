@@ -19,7 +19,7 @@ export const AboutBox = styled.div<{ $colors: ProjectCopy["colors"] }>`
     rgba(0, 0, 0, 0) 0%,
     ${({ $colors }) => $colors?.primary} 100%
   );
-  color: ${({ theme }) => theme.colors.textConstant};
+  color: ${({ theme }) => theme.colors.light};
 `;
 
 export const Name = styled.h3`

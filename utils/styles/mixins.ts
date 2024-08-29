@@ -9,7 +9,8 @@ export const layoutView = css`
   max-width: calc(100vw - ${({ theme }) => theme.spacing(4)});
 
   ${mediaDesktop(css`
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     max-width: calc(
       ${breakpointDesktop}px - ${({ theme }) => theme.spacing(4)}
     );

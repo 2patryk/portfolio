@@ -11,5 +11,5 @@ export const Label = styled.label`
 export const IconWrapper = styled.div`
   width: 16rem;
   height: 16rem;
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: inherit;
 `;

@@ -30,12 +30,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isLoading, setIsLoading, setIsDesktop, isDesktop } = useGlobalStore();
+  const { isLoading, setIsLoading, setIsDesktop, isDesktop, headerTheme } =
+    useGlobalStore();
 
   useEffect(() => {
     setIsLoading(false);
     setIsDesktop(!checkIfMobile());
   }, []);
+
+  console.log(headerTheme);
 
   return (
     <html
@@ -49,7 +52,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <Header />
+            <Header overrideTheme={headerTheme} />
             {children}
             <Loading isLoading={isLoading} />
           </ThemeProvider>
