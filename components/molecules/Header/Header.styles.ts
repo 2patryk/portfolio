@@ -7,11 +7,6 @@ export const Container = styled.header`
   top: 0;
   left: 0;
   z-index: ${({ theme }) => theme.zIndex.header};
-  /* background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 0%,
-    ${({ theme }) => theme.colors.background} 100%
-  ); */
   pointer-events: none;
 `;
 

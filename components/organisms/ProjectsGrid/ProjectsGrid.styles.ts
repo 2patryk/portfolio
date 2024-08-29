@@ -42,7 +42,7 @@ export const ProjectsContent = styled.div`
   gap: ${({ theme }) => theme.spacing(2)};
 
   & > a {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 3 / 2;
   }
 
   ${mediaTablet(css`

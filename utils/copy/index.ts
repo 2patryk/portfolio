@@ -204,9 +204,15 @@ export const globalCopy = {
       },
     },
   },
-  footer:{
-    lastUpdate: "Last update"
-  }
+  footer: {
+    lastUpdate: "Last update",
+  },
+  errors: {
+    notFound: {
+      title: "Not found",
+      cta: "Go back home",
+    },
+  },
 };
 
 export type Copy = typeof globalCopy;

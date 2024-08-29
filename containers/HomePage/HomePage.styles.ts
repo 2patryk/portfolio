@@ -57,7 +57,6 @@ export const Contact = styled.p`
     font-weight: 700;
 
     ${outlineOnFocus(3)}
-
     ${hover(css`
       opacity: 0.7;
     `)}

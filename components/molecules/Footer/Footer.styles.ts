@@ -1,4 +1,9 @@
-import { layoutView } from "@/utils/styles/mixins";
+import {
+  layoutView,
+  hover,
+  outlineOnFocus,
+  defaultHover,
+} from "@/utils/styles/mixins";
 import { mediaTablet } from "@/utils/styles/responsive";
 import Link from "next/link";
 import styled, { css } from "styled-components";
@@ -23,6 +28,7 @@ export const Wrapper = styled.footer`
 `;
 
 export const LogoWrapper = styled(Link)`
+  ${defaultHover};
   width: 16rem;
   padding: 2rem;
   display: inline-block;

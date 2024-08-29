@@ -69,3 +69,12 @@ export const hover = (content: MediaContent, sameOnFocus = true) => css`
     `}
   `)}
 `;
+
+export const defaultHover = css`
+  transition: opacity 0.4s ease-in-out;
+
+  ${outlineOnFocus(3)}
+  ${hover(css`
+    opacity: 0.7;
+  `)}
+`;

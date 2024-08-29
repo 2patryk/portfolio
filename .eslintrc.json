@@ -3,6 +3,6 @@
     "next/core-web-vitals",
     "plugin:storybook/recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
   ]
 }

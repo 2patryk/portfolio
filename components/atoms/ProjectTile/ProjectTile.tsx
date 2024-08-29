@@ -4,7 +4,8 @@ import { format } from "date-fns";
 
 import * as Styled from "./ProjectTile.styles";
 
-import { globalCopy, ProjectCopy } from "@/utils/copy";
+import { ProjectCopy } from "@/utils/copy";
+import { getSlug, ROUTES } from "@/utils/routes";
 
 export type ProjectTileProps = {
   project: ProjectCopy;
@@ -19,8 +20,7 @@ const ProjectTile: FC<ProjectTileProps> = ({
 }) => {
   return (
     <Styled.Wrapper
-      target="_blank"
-      href="https://www.linkedin.com/in/patrykordon/details/projects/" // TODO: Temp solution
+      href={`${ROUTES.PROJECTS}/${getSlug(project.name)}` as any}
       onMouseEnter={onHover ? () => onHover(true) : undefined}
       onMouseLeave={onHover ? () => onHover(false) : undefined}
       $isInBackground={isInBackground}

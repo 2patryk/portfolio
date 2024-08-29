@@ -61,6 +61,12 @@ export const typography = {
     fontWeight: 300,
     lineHeight: 1.4,
   },
+  cta: {
+    fontFamily: Font.syne,
+    size: 12,
+    fontWeight: 700,
+    lineHeight: 1,
+  },
 } satisfies Record<string, Typography>;
 
 export type Theme = {
