@@ -30,8 +30,10 @@ export type ProjectCopy = {
 export const globalCopy = {
   meta: metaCopy,
   global: {
+    name: "Patryk Ordon",
     email: "patrykordon@gmail.com",
     linkedin: "https://www.linkedin.com/in/patrykordon/",
+    lastUpdate: "2024-08-29",
   },
   menu: {
     about: "About me",
@@ -202,6 +204,9 @@ export const globalCopy = {
       },
     },
   },
+  footer:{
+    lastUpdate: "Last update"
+  }
 };
 
 export type Copy = typeof globalCopy;
