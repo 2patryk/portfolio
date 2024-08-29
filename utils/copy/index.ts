@@ -1,8 +1,16 @@
 import { Project } from "../config";
 import { metaCopy } from "./meta";
 
+export enum Category {
+  GAME = "game",
+  VR = "VR",
+  BLOCKCHAIN = "blockchain",
+  WEBSITE = "website",
+}
+
 export type ProjectCopy = {
   company: string;
+  categories: Array<Category>;
   name: string;
   shortname?: string;
   colors?: {
@@ -11,6 +19,10 @@ export type ProjectCopy = {
   };
   alts: {
     background: string;
+  };
+  dates: {
+    from: string;
+    to: string;
   };
   background: string;
 };
@@ -29,6 +41,7 @@ export const globalCopy = {
   projects: {
     ask: {
       company: "UNIT9",
+      categories: [Category.WEBSITE],
       name: "MTV: Acknowledge, Support, Keep-in-Touch (A.S.K.)",
       shortname: "MTV A.S.K.",
       colors: {
@@ -38,10 +51,15 @@ export const globalCopy = {
       alts: {
         background: "MTV A.S.K. background",
       },
+      dates: {
+        from: "2024-03-01",
+        to: "2024-05-01",
+      },
       background: "/images/projects/ask/ask-background.jpg",
     },
     mtd: {
       company: "UNIT9",
+      categories: [Category.WEBSITE],
       name: "Mountain Dew: Raid",
       shortname: "MTN DEW: Raid",
       colors: {
@@ -51,10 +69,15 @@ export const globalCopy = {
       alts: {
         background: "Mountain Dew: Raid background",
       },
+      dates: {
+        from: "2023-08-01",
+        to: "2023-12-01",
+      },
       background: "/images/projects/mtd/mtd-background.png",
     },
     slimjim: {
       company: "UNIT9",
+      categories: [Category.WEBSITE, Category.BLOCKCHAIN],
       name: "Slim Jim: Meataverse",
       colors: {
         primary: "#080c84",
@@ -63,10 +86,15 @@ export const globalCopy = {
       alts: {
         background: "Slim Jim: Meataverse background",
       },
+      dates: {
+        from: "2023-01-01",
+        to: "2023-07-01",
+      },
       background: "/images/projects/slimjim/slimjim-background.png",
     },
     jj: {
       company: "UNIT9",
+      categories: [Category.WEBSITE],
       name: "Johnson & Johnson: All Sci No Fi",
       shortname: "J&J: All Sci No Fi",
       colors: {
@@ -76,12 +104,17 @@ export const globalCopy = {
       alts: {
         background: "Johnson & Johnson: All Sci No Fi background",
       },
+      dates: {
+        from: "2022-10-01",
+        to: "2023-01-01",
+      },
       background: "/images/projects/jj/jj-background.png",
     },
     wimbledon: {
       company: "UNIT9",
+      categories: [Category.WEBSITE, Category.GAME],
       name: "Vodafone's Wimbledon Walk of Champions",
-      shortname: "Vodafone's Wimbledon",
+      shortname: "Vodafone's\nWimbledon",
       colors: {
         primary: "#849843",
         secondary: "#c4c4b4",
@@ -89,10 +122,15 @@ export const globalCopy = {
       alts: {
         background: "Wimbledon background",
       },
+      dates: {
+        from: "2022-03-01",
+        to: "2022-07-01",
+      },
       background: "/images/projects/wimbledon/wimbledon-background.png",
     },
     riot: {
       company: "UNIT9",
+      categories: [Category.GAME],
       name: "League of Legends: Wild Rift - Legends of the Rift",
       shortname: "LOL: Wild Rift",
       colors: {
@@ -102,10 +140,15 @@ export const globalCopy = {
       alts: {
         background: "League of Legends: Wild Rift background",
       },
+      dates: {
+        from: "2021-03-01",
+        to: "2021-03-31",
+      },
       background: "/images/projects/riot/riot-background.png",
     },
     fh: {
       company: "LIKI MS",
+      categories: [Category.WEBSITE],
       name: "Frontend House: company website",
       shortname: "Frontend House",
       colors: {
@@ -114,6 +157,10 @@ export const globalCopy = {
       },
       alts: {
         background: "Frontend House background",
+      },
+      dates: {
+        from: "2020-10-01",
+        to: "2021-02-01",
       },
       background: "/images/projects/fh/fh-background.png",
     },

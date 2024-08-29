@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import { ProjectTileProps } from "./ProjectTile";
+import { outlineOnFocus } from "@/utils/styles/mixins";
 
 export const Background = styled(Image)`
   object-fit: cover;
@@ -10,16 +11,33 @@ export const Background = styled(Image)`
   transition: transform 0.4s ease-in-out;
 `;
 
-export const AboutBox = styled.div`
-  padding: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(2)}`};
-  /* background: linear-gradient(
+export const AboutBox = styled.div<{ $colors: ProjectCopy["colors"] }>`
+  padding: ${({ theme }) =>
+    `${theme.spacing(5)} ${theme.spacing(2)} ${theme.spacing(1)}`};
+  background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    ${({ theme }) => theme.colors.background} 100%
-  ); */
-  transition: font-weight 0.4s ease-in-out;
-  // TODO: Add always white font
+    ${({ $colors }) => $colors?.primary} 100%
+  );
+  color: ${({ theme }) => theme.colors.textConstant};
 `;
+
+export const Name = styled.h3`
+  ${({ theme }) => theme.typography("h4")};
+  white-space: pre-wrap;
+  transition: font-weight 0.4s ease-in-out;
+`;
+
+export const Extra = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacing(0.5)};
+  ${({ theme }) => theme.typography("body")};
+`;
+
+export const Company = styled.span``;
+
+export const Date = styled.span``;
 
 export const Mask = styled.div<{ $colors: ProjectCopy["colors"] }>`
   position: absolute;
@@ -50,16 +68,15 @@ export const Mask = styled.div<{ $colors: ProjectCopy["colors"] }>`
 export const Wrapper = styled(Link)<{
   $isInBackground: ProjectTileProps["isInBackground"];
 }>`
+  ${outlineOnFocus};
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  ${({ theme }) => theme.typography("h4")};
   overflow: hidden;
   transition: opacity 0.4s ease-in-out;
-  /* filter: grayscale(0.2); */
 
   &:hover {
     ${Background} {
@@ -67,7 +84,9 @@ export const Wrapper = styled(Link)<{
     }
 
     ${AboutBox} {
-      font-weight: 750;
+      ${Name} {
+        font-weight: 760;
+      }
     }
 
     ${Mask} {

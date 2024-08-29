@@ -8,11 +8,10 @@ import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
 import Loading from "@/components/molecules/Loading/Loading";
 import { useGlobalStore } from "@/utils/global.store";
-// import { useTimer } from "use-timer";
 import Header from "@/components/molecules/Header/Header";
 import { useEffect } from "react";
-import { GoogleAnalytics } from '@next/third-parties/google'
-
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { checkIfMobile } from "@/utils/platform";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -31,21 +30,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isLoading, setIsLoading } = useGlobalStore();
+  const { isLoading, setIsLoading, setIsDesktop, isDesktop } = useGlobalStore();
 
   useEffect(() => {
     setIsLoading(false);
+    setIsDesktop(!checkIfMobile());
   }, []);
-
-  // useTimer({
-  //   autostart: true,
-  //   initialTime: 0,
-  //   endTime: 0,
-  //   timerType: "INCREMENTAL",
-  //   onTimeOver: () => {
-  //     setIsLoading(false);
-  //   },
-  // });
 
   return (
     <html

@@ -1,8 +1,10 @@
 import { FC } from "react";
 
+import { format } from "date-fns";
+
 import * as Styled from "./ProjectTile.styles";
 
-import { ProjectCopy } from "@/utils/copy";
+import { globalCopy, ProjectCopy } from "@/utils/copy";
 
 export type ProjectTileProps = {
   project: ProjectCopy;
@@ -17,7 +19,8 @@ const ProjectTile: FC<ProjectTileProps> = ({
 }) => {
   return (
     <Styled.Wrapper
-      href="#"
+      target="_blank"
+      href="https://www.linkedin.com/in/patrykordon/details/projects/" // TODO: Temp solution
       onMouseEnter={onHover ? () => onHover(true) : undefined}
       onMouseLeave={onHover ? () => onHover(false) : undefined}
       $isInBackground={isInBackground}
@@ -28,7 +31,15 @@ const ProjectTile: FC<ProjectTileProps> = ({
         src={project.background}
       />
       <Styled.Mask $colors={project.colors} />
-      <Styled.AboutBox>{project.shortname || project.name}</Styled.AboutBox>
+      <Styled.AboutBox $colors={project.colors}>
+        <Styled.Name>{project.shortname || project.name}</Styled.Name>
+        <Styled.Extra>
+          <Styled.Company>{project.company}</Styled.Company>/
+          <Styled.Date>
+            {format(new Date(project.dates.to), "LLL yyyy")}
+          </Styled.Date>
+        </Styled.Extra>
+      </Styled.AboutBox>
     </Styled.Wrapper>
   );
 };

@@ -43,3 +43,10 @@ export const processTypography = (typography: Typography) => css`
     line-height: ${typography.lineHeight};
   `};
 `;
+
+export const outlineOnFocus = css`
+  &:focus-visible {
+    outline-offset: 5px;
+    outline: 5px auto ${({ theme }) => theme.colors.textPrimary};
+  }
+`;

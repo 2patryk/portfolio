@@ -31,11 +31,11 @@ const HomePage: FC = () => {
           </Styled.NumbersWrapper>
         </Styled.AboutWrapper>
       </Section>
-      {/* <Section heading={copy.projects.label}>
+      <Section heading={copy.projects.label}>
         <Styled.ProjectsGridWrapper>
           <ProjectsGrid projects={projects} />
         </Styled.ProjectsGridWrapper>
-      </Section> */}
+      </Section>
       <Section heading={copy.contact.label}>
         <Styled.Contact>
           {copy.contact.contact.pre}{" "}

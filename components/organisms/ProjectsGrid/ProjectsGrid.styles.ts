@@ -20,6 +20,7 @@ export const Background = styled.div<{
   z-index: -1;
   object-fit: cover;
   transition: background-color 0.4s ease-in-out;
+  pointer-events: none;
 
   ${({ $colors }) =>
     $colors &&

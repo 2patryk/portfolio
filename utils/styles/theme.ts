@@ -9,6 +9,7 @@ export enum ColorNames {
   textPrimary = "textPrimary",
   textSecondary = "textSecondary",
   textInverted = "textInverted",
+  textConstant = "textConstant",
   background = "background",
   backgroundExtra = "backgroundExtra",
 }
@@ -83,6 +84,7 @@ export const lightColors: Record<ColorNames, string> = {
   textPrimary: "#081C15",
   textSecondary: "#1B4332",
   textInverted: "#B7E4C7",
+  textConstant: "#D8F3DC",
   background: "#e5e1dd",
   backgroundExtra: "#ddd8d2",
 };
@@ -94,6 +96,7 @@ export const darkColors: Record<ColorNames, string> = {
   textPrimary: "#D8F3DC",
   textSecondary: "#95D5B2",
   textInverted: "#1B4332",
+  textConstant: "#D8F3DC",
   background: "#1a1d20",
   backgroundExtra: "#212529",
 };
