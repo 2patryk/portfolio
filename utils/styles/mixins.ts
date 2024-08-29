@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { mediaDesktop } from "./responsive";
+import { MediaContent, mediaDesktop, mediaTablet } from "./responsive";
 import { breakpointDesktop } from "../vars";
 import { Typography } from "./theme";
 
@@ -44,9 +44,28 @@ export const processTypography = (typography: Typography) => css`
   `};
 `;
 
-export const outlineOnFocus = css`
+export const outlineOnFocus = (offset: number = 5) => css`
   &:focus-visible {
-    outline-offset: 5px;
+    outline-offset: ${offset}px;
     outline: 5px auto ${({ theme }) => theme.colors.textPrimary};
   }
+`;
+
+export const hover = (content: MediaContent, sameOnFocus = true) => css`
+  &:active {
+    ${content}
+  }
+
+  ${mediaTablet(css`
+    &:hover {
+      ${content}
+    }
+
+    ${sameOnFocus &&
+    css`
+      &:focus-visible {
+        ${content}
+      }
+    `}
+  `)}
 `;

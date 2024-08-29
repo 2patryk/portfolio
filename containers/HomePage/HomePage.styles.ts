@@ -1,4 +1,4 @@
-import { fluidView, layoutView } from "@/utils/styles/mixins";
+import { fluidView, hover, layoutView, outlineOnFocus } from "@/utils/styles/mixins";
 import { mediaDesktop, mediaTablet } from "@/utils/styles/responsive";
 import styled, { css } from "styled-components";
 
@@ -55,10 +55,12 @@ export const Contact = styled.p`
     text-decoration: underline;
     transition: opacity 0.2s ease-in-out;
     font-weight: 700;
-  }
 
-  a:hover {
-    opacity: 0.7;
+    ${outlineOnFocus(3)}
+
+    ${hover(css`
+      opacity: 0.7;
+    `)}
   }
 `;
 
