@@ -10,7 +10,7 @@ export type HighlightProps = {
 const Highlight: FC<HighlightProps> = ({ label, content }) => {
   return (
     <Styled.Wrapper>
-      <Styled.Label>{label}</Styled.Label>
+      <Styled.Label>{label}:</Styled.Label>
       <Styled.Body>{content}</Styled.Body>
     </Styled.Wrapper>
   );

@@ -179,6 +179,34 @@ export const globalCopy = {
         brand: ["Slim Jim"],
         platforms: [Platform.DESKTOP, Platform.MOBILE],
       },
+      assets: [
+        {
+          src: "/videos/sj1.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/sj2.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/sj3.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/sj4.mp4",
+          type: "video",
+        },
+        {
+          src: "/images/projects/slimjim/slimjim-wide.png",
+          type: "image",
+          size: "wide",
+        },
+      ],
+      description:
+        "Slim Jim ventured into web3 with the launch of the Meataverse, their first-ever digital membership club. Designed to be accessible to everyone, regardless of web3 experience, the Meataverse offered members a playful and interactive NFT experience. At its core were 10,069 unique NFTs called GigaJims, distributed on a first-come, first-served basis. Members could evolve their GigaJim by applying S.A.U.C.E., a currency earned by scanning Slim Jim products and engaging with the brand. With over 10 million possible GigaJim combinations, users could personalize and compete for the highest rarity scores.\n\nThe Meataverse was built with a focus on user-friendly technology, using a custom-built API to mint and evolve GigaJims directly on the Polygon blockchain. This seamless, frictionless experience catered to both NFT novices and seasoned collectors. The Meataverse's initial success saw GigaJims quickly claimed and traded on open marketplaces. With its innovative platform and mechanics, the Meataverse is poised for future expansions, blending sophisticated tech with fun, engaging content.",
+      responsibilities:
+        "I was responsible for implementing UI and animations. The project was unique due to its pixel art graphics which presented a challenge in terms of responsiveness but allowed me to grow significantly in this area.",
+      show: true,
     },
     jj: {
       company: "UNIT9",
@@ -204,7 +232,8 @@ export const globalCopy = {
       },
       description:
         "Johnson & Johnson sought to revolutionize their recruitment process with a futuristic twist as part of their \"All Sci No Fi\" campaign. We designed an innovative recruitment website targeting candidates with medical and scientific expertise. The site offers an immersive 3D experience where users can explore a carousel of cutting-edge innovations. Each innovation is presented as something out of science fiction, with subpages providing more details and linking to relevant job opportunities within the company.\n\nThe website's sci-fi-inspired design features WebGL spatial treatment, futuristic typography, and dynamic motion graphics, creating a captivating user experience. Candidates navigate through the 3D environment, discovering real-world technologies that could be part of their future careers. The site also includes film trailer-style videos and a custom CMS, allowing Johnson & Johnson to easily update content. This unique digital hub not only showcases the company's innovations but also highlights the significant impact candidates can have by joining Johnson & Johnson.",
-      responsibilities: "I was responsible for implementing the UI of the page including motions and transitions.",
+      responsibilities:
+        "I was responsible for implementing the UI of the page including motions and transitions.",
       assets: [
         {
           src: "/videos/jj1.mp4",

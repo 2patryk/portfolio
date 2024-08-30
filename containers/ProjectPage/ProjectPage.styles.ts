@@ -86,7 +86,8 @@ export const Assets = styled.div<{ $count?: number }>`
     $count === 3 &&
     css`
       ${mediaTablet(css`
-        & > div:nth-child(3) {
+        & > div,
+        video:nth-child(3) {
           grid-column: span 2;
         }
       `)}
@@ -96,5 +97,5 @@ export const Assets = styled.div<{ $count?: number }>`
 export const WideAsset = styled.div`
   position: relative;
   width: 100%;
-  aspect-ratio: 6 / 2;
+  aspect-ratio: 7 / 2;
 `;
