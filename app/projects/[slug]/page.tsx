@@ -35,6 +35,9 @@ export async function generateMetadata({ params: { slug } }: PageProps) {
   return {
     title: `${projectCopy?.name} – ${metaCopy.index.title}`,
     description: projectCopy?.description,
+    openGraph: {
+      images: [projectCopy?.background],
+    },
   };
 }
 
