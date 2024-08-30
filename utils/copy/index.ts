@@ -202,6 +202,28 @@ export const globalCopy = {
         brand: ["Johnson & Johnson"],
         platforms: [Platform.DESKTOP, Platform.MOBILE],
       },
+      description:
+        "Johnson & Johnson sought to revolutionize their recruitment process with a futuristic twist as part of their \"All Sci No Fi\" campaign. We designed an innovative recruitment website targeting candidates with medical and scientific expertise. The site offers an immersive 3D experience where users can explore a carousel of cutting-edge innovations. Each innovation is presented as something out of science fiction, with subpages providing more details and linking to relevant job opportunities within the company.\n\nThe website's sci-fi-inspired design features WebGL spatial treatment, futuristic typography, and dynamic motion graphics, creating a captivating user experience. Candidates navigate through the 3D environment, discovering real-world technologies that could be part of their future careers. The site also includes film trailer-style videos and a custom CMS, allowing Johnson & Johnson to easily update content. This unique digital hub not only showcases the company's innovations but also highlights the significant impact candidates can have by joining Johnson & Johnson.",
+      responsibilities: "I was responsible for implementing the UI of the page including motions and transitions.",
+      assets: [
+        {
+          src: "/videos/jj1.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/jj2.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/jj3.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/jj4.mp4",
+          type: "video",
+        },
+      ],
+      show: true,
     },
     wimbledon: {
       company: "UNIT9",
