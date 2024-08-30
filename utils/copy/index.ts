@@ -426,7 +426,7 @@ export const globalCopy = {
         brand: "Brand",
         company: "Company",
       },
-      related: "See other projects",
+      related: "Other projects",
     },
   },
   footer: {
