@@ -2,24 +2,26 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  border: 2rem solid ${({ theme }) => theme.colors.textSecondary};
+  height: 35rem;
 `;
 
 export const Label = styled.h3`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   ${({ theme }) => theme.typography("h5")};
+  font-size: 10rem;
   background-color: ${({ theme }) => theme.colors.textSecondary};
   color: ${({ theme }) => theme.colors.background};
-  padding: ${({ theme }) => theme.spacing(1)};
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 0 ${({ theme }) => theme.spacing(1)};
 `;
 
-export const Content = styled.div`
-  position: relative;
-  border: 2rem solid ${({ theme }) => theme.colors.textSecondary};
-  width: 100%;
-  padding: ${({ theme }) => theme.spacing(1)};
-  height: 100rem;
+export const Body = styled.p`
+  padding: 0 ${({ theme }) => theme.spacing(1)};
+  font-weight: 400;
+  text-transform: capitalize;
 `;

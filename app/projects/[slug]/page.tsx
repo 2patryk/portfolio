@@ -2,7 +2,6 @@ import NotFoundPage from "@/containers/NotFoundPage/NotFoundPage";
 import ProjectPage from "@/containers/ProjectPage/ProjectPage";
 import { globalCopy } from "@/utils/copy";
 import { getSlug } from "@/utils/routes";
-import { notFound } from "next/navigation";
 import slugify from "slugify";
 
 type PageParams = {
@@ -13,6 +12,14 @@ type PageProps = {
   params: PageParams;
 };
 
+const getProject = (slug: string) => {
+  const project = Object.entries(globalCopy.projects).find(
+    ([, value]) => getSlug(value.name) === slug
+  );
+
+  return project ? project[1] : null;
+};
+
 export function generateStaticParams() {
   const projects = Object.values(globalCopy.projects);
 
@@ -21,11 +28,17 @@ export function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params: { slug } }: PageProps) {
+  const projectCopy = getProject(slug);
+  const metaCopy = globalCopy.meta;
+
+  return {
+    title: `${projectCopy?.name} – ${metaCopy.index.title}`,
+  };
+}
+
 export default function Page({ params: { slug } }: PageProps) {
-  const project = Object.entries(globalCopy.projects).find(
-    ([, value]) => getSlug(value.name) === slug
-  );
-  const projectCopy = project ? project[1] : null;
+  const projectCopy = getProject(slug);
 
   return projectCopy ? (
     <ProjectPage projectCopy={projectCopy} />

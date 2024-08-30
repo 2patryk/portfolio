@@ -22,7 +22,8 @@ const style = css`
     outline: none;
     user-select: text;
     transition:
-      background-color 0.4s ease-in-out;
+      background-color 0.4s ease-in-out,
+      border-color 0.4s ease-in-out;
   }
 
   ::selection {

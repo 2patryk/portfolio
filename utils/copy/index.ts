@@ -8,6 +8,19 @@ export enum Category {
   WEBSITE = "website",
 }
 
+export enum Platform {
+  MOBILE = "mobile",
+  DESKTOP = "desktop",
+  VR = "vr",
+}
+
+export type Asset = {
+  src: string;
+  type: "video" | "image";
+  size?: "normal" | "wide";
+  alt?: string;
+};
+
 export type ProjectCopy = {
   company: string;
   categories: Array<Category>;
@@ -25,6 +38,16 @@ export type ProjectCopy = {
     to: string;
   };
   background: string;
+  description?: string;
+  highlights: {
+    role: string;
+    brand: Array<string>;
+    platforms: Array<Platform>;
+    awards?: Array<string>;
+  };
+  assets?: Array<Asset>;
+  responsibilities?: string;
+  show?: boolean;
 };
 
 export const globalCopy = {
@@ -33,7 +56,7 @@ export const globalCopy = {
     name: "Patryk Ordon",
     email: "patrykordon@gmail.com",
     linkedin: "https://www.linkedin.com/in/patrykordon/",
-    lastUpdate: "2024-08-29",
+    lastUpdate: "2024-08-30",
   },
   menu: {
     about: "About me",
@@ -58,6 +81,40 @@ export const globalCopy = {
         to: "2024-05-01",
       },
       background: "/images/projects/ask/ask-background.jpg",
+      description:
+        'In collaboration with SHOWTIME/MTV Entertainment Studios and the mental health nonprofit Active Minds, this project aimed to empower young people to support their peers through difficult conversations. At its core was the A.S.K. framework—Acknowledge, Support, and Keep-in-Touch—designed to guide users in providing emotional support. The initiative featured two digital experiences: an interactive "choose-your-own-adventure" YouTube video and a mobile-first website.\n\nThe website was central to the experience, offering users a concise explanation of the A.S.K. framework. It included interactive tools like SMS-based conversations, a chatbot, an emotions wheel, and a calendar reminder to check in on friends. The design featured a story-like landing page with parallax animations and downloadable social media content to promote healthy support practices, making it a comprehensive resource for fostering empathy and communication skills.',
+      highlights: {
+        role: "Frontend developer",
+        platforms: [Platform.DESKTOP, Platform.MOBILE],
+        brand: ["Showtime", "MTV"],
+        awards: ["FWA"],
+      },
+      responsibilities:
+        "I was one of the main front-end developers working on the site. I implemented most of the content, including animations, transitions, accessibility features, and scroll navigation.",
+      assets: [
+        {
+          src: "/images/projects/ask/ask-wide.png",
+          type: "image",
+          size: "wide",
+        },
+        {
+          src: "/videos/ask1.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/ask2.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/ask3.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/ask4.mp4",
+          type: "video",
+        },
+      ],
+      show: true,
     },
     mtd: {
       company: "UNIT9",
@@ -76,6 +133,30 @@ export const globalCopy = {
         to: "2023-12-01",
       },
       background: "/images/projects/mtd/mtd-background.png",
+      highlights: {
+        role: "Frontend developer",
+        brand: ["Mountain Dew"],
+        platforms: [Platform.DESKTOP, Platform.MOBILE],
+      },
+      description:
+        "Mountain Dew, known for its bold flavors and connection to the gaming community, sought to elevate emerging Twitch streamers by leveraging cutting-edge technology. The goal was to organically boost streamer visibility and help them grow their audiences. The result was Mountain Dew Raid, an innovative initiative powered by AI. We developed a smart crawler that scanned active Twitch streams, identifying those with Mountain Dew products visible on camera. Streamers who were detected were invited to join the Raid, giving them tools and incentives to expand their reach on Twitch.\n\nThe custom-built AI model was fine-tuned to recognize subtle branding differences and scan thousands of streams in real-time using a distributed network of 50 GPU-powered virtual machines. The initiative provided unique rewards, such as spots on the Mountain Dew Gaming Channel, one-on-one coaching, and access to a community of like-minded streamers. By spotlighting Mountain Dew's biggest fans, this project not only rewarded brand loyalty but also demonstrated the powerful potential of AI in reshaping digital interactions.",
+      responsibilities:
+        "I was responsible for developing the admin panel for moderators, which streamlined the process of managing and promoting the identified streamers. Additionally, I created a video plugin for the Twitch platform to support this functionality.",
+      assets: [
+        {
+          src: "/images/projects/mtd/mtd1.png",
+          type: "image",
+        },
+        {
+          src: "/images/projects/mtd/mtd2.png",
+          type: "image",
+        },
+        {
+          src: "/images/projects/mtd/mtd3.png",
+          type: "image",
+        },
+      ],
+      show: true,
     },
     slimjim: {
       company: "UNIT9",
@@ -93,6 +174,11 @@ export const globalCopy = {
         to: "2023-07-01",
       },
       background: "/images/projects/slimjim/slimjim-background.png",
+      highlights: {
+        role: "Frontend developer",
+        brand: ["Slim Jim"],
+        platforms: [Platform.DESKTOP, Platform.MOBILE],
+      },
     },
     jj: {
       company: "UNIT9",
@@ -111,6 +197,11 @@ export const globalCopy = {
         to: "2023-01-01",
       },
       background: "/images/projects/jj/jj-background.png",
+      highlights: {
+        role: "Frontend developer",
+        brand: ["Johnson & Johnson"],
+        platforms: [Platform.DESKTOP, Platform.MOBILE],
+      },
     },
     wimbledon: {
       company: "UNIT9",
@@ -129,6 +220,12 @@ export const globalCopy = {
         to: "2022-07-01",
       },
       background: "/images/projects/wimbledon/wimbledon-background.png",
+      highlights: {
+        role: "Frontend developer",
+        brand: ["Vodafone"],
+        platforms: [Platform.DESKTOP, Platform.MOBILE, Platform.VR],
+        awards: ["FWA"],
+      },
     },
     riot: {
       company: "UNIT9",
@@ -147,6 +244,11 @@ export const globalCopy = {
         to: "2021-03-31",
       },
       background: "/images/projects/riot/riot-background.png",
+      highlights: {
+        role: "Frontend developer",
+        brand: ["Riot Games"],
+        platforms: [Platform.MOBILE],
+      },
     },
     fh: {
       company: "LIKI MS",
@@ -165,6 +267,11 @@ export const globalCopy = {
         to: "2021-02-01",
       },
       background: "/images/projects/fh/fh-background.png",
+      highlights: {
+        role: "Frontend developer",
+        brand: ["LIKI MS", "Frontend House"],
+        platforms: [Platform.DESKTOP, Platform.MOBILE],
+      },
     },
   } satisfies Record<Project, ProjectCopy>,
   pages: {
@@ -201,6 +308,17 @@ export const globalCopy = {
           or: "or",
           email: "send me an email",
         },
+      },
+    },
+    projects: {
+      highlights: {
+        role: "My role",
+        duration: "Project duration",
+        release: "Release date",
+        awards: "Awards",
+        category: "Category",
+        platform: "Platform",
+        brand: "Brand",
       },
     },
   },
