@@ -53,6 +53,25 @@ export const ProjectsContent = styled.div<{ $count: number }>`
   `)}
 
   ${({ $count }) =>
+    $count === 3 &&
+    css`
+      ${mediaTablet(css`
+        & > a:nth-child(3) {
+          grid-column: span 2;
+          aspect-ratio: 2 / 0.969;
+        }
+      `)}
+
+      ${mediaDesktop(css`
+        & > a:nth-child(3) {
+          grid-column: unset;
+          aspect-ratio: 1 /1;
+        }
+      `)}
+    `}
+
+
+  ${({ $count }) =>
     $count > 3 &&
     css`
       ${mediaTablet(css`

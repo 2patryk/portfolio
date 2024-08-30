@@ -14,10 +14,17 @@ import ProjectsGrid from "@/components/organisms/ProjectsGrid/ProjectsGrid";
 import { Project, projectsOrder } from "@/utils/config";
 
 const getRelatedProjects = (_project: Project) => {
-  return projectsOrder
-    .filter((project) => project !== (_project as Project))
-    .map((project) => globalCopy.projects[project])
-    .slice(0, 3);
+  const projectIndex = projectsOrder.findIndex(
+    (project) => project === (_project as Project)
+  );
+  const prevProject =
+    projectIndex > 0 ? projectIndex - 1 : projectsOrder.length - 1;
+
+  const nextProjects = projectsOrder.filter((_, index) => index > projectIndex);
+
+  return [projectsOrder[prevProject], ...nextProjects, ...projectsOrder]
+    .slice(0, 3)
+    .map((project) => globalCopy.projects[project]);
 };
 
 export type ProjectPageProps = {

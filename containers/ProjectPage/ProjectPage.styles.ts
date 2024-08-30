@@ -12,10 +12,11 @@ export const Content = styled.div`
   ${layoutView};
   display: flex;
   flex-direction: column-reverse;
-  gap: ${({ theme }) => theme.spacing(6)};
+  gap: ${({ theme }) => theme.spacing(4)};
 
   ${mediaTablet(css`
     flex-direction: row;
+    gap: ${({ theme }) => theme.spacing(6)};
   `)}
 `;
 
