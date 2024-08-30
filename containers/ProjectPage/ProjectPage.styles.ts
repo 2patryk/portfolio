@@ -12,7 +12,7 @@ export const Content = styled.div`
   ${layoutView};
   display: flex;
   flex-direction: column-reverse;
-  gap: ${({ theme }) => theme.spacing(4)};
+  gap: ${({ theme }) => theme.spacing(6)};
 
   ${mediaTablet(css`
     flex-direction: row;
@@ -36,11 +36,11 @@ export const Description = styled.div`
   }
 
   ${mediaTablet(css`
-    flex: 0.55;
+    flex: 0.6;
   `)}
 
   ${mediaDesktop(css`
-    flex: 0.65;
+    flex: 0.675;
   `)}
 `;
 
@@ -49,20 +49,14 @@ export const Highlights = styled.div`
   flex-direction: column;
   width: 100%;
 
-  & > div {
-    margin-top: -2rem;
-  }
-
-  & > div:first-child {
-    margin-top: 0;
-  }
+  gap: ${({ theme }) => theme.spacing(2)};
 
   ${mediaTablet(css`
-    flex: 0.45;
+    flex: 0.4;
   `)}
 
   ${mediaDesktop(css`
-    flex: 0.35;
+    flex: 0.325;
   `)}
 `;
 
@@ -75,7 +69,7 @@ export const Assets = styled.div<{ $count?: number }>`
 
   & > div,
   video {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 3 / 1.8;
   }
 
   ${mediaTablet(css`
@@ -106,5 +100,9 @@ export const WideAsset = styled.div`
 
 export const RelatedWrapper = styled.div`
   ${layoutView};
-  margin-top: ${({ theme }) => theme.spacing(6)};
+  margin-top: ${({ theme }) => theme.spacing(3)};
+
+  ${mediaTablet(css`
+    margin-top: ${({ theme }) => theme.spacing(6)};
+  `)}
 `;
