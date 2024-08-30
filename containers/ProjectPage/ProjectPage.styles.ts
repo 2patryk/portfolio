@@ -83,7 +83,7 @@ export const Assets = styled.div<{ $count?: number }>`
   `)}
 
   ${({ $count }) =>
-    $count === 3 &&
+    ($count === 3 || $count === 5) &&
     css`
       ${mediaTablet(css`
         & > div:nth-child(3),

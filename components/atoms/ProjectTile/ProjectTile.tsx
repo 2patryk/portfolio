@@ -20,11 +20,7 @@ const ProjectTile: FC<ProjectTileProps> = ({
 }) => {
   return (
     <Styled.Wrapper
-      href={
-        project.show
-          ? (`${ROUTES.PROJECTS}/${getSlug(project.name)}` as any)
-          : "https://www.linkedin.com/in/patrykordon/details/projects/"
-      }
+      href={`${ROUTES.PROJECTS}/${getSlug(project.name)}` as any}
       // href="https://www.linkedin.com/in/patrykordon/details/projects/"
       onMouseEnter={onHover ? () => onHover(true) : undefined}
       onMouseLeave={onHover ? () => onHover(false) : undefined}

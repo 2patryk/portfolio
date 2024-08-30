@@ -47,7 +47,6 @@ export type ProjectCopy = {
   };
   assets?: Array<Asset>;
   responsibilities?: string;
-  show?: boolean;
 };
 
 export const globalCopy = {
@@ -114,7 +113,6 @@ export const globalCopy = {
           type: "video",
         },
       ],
-      show: true,
     },
     mtd: {
       company: "UNIT9",
@@ -156,7 +154,6 @@ export const globalCopy = {
           type: "image",
         },
       ],
-      show: true,
     },
     slimjim: {
       company: "UNIT9",
@@ -206,7 +203,6 @@ export const globalCopy = {
         "Slim Jim ventured into web3 with the launch of the Meataverse, their first-ever digital membership club. Designed to be accessible to everyone, regardless of web3 experience, the Meataverse offered members a playful and interactive NFT experience. At its core were 10,069 unique NFTs called GigaJims, distributed on a first-come, first-served basis. Members could evolve their GigaJim by applying S.A.U.C.E., a currency earned by scanning Slim Jim products and engaging with the brand. With over 10 million possible GigaJim combinations, users could personalize and compete for the highest rarity scores.\n\nThe Meataverse was built with a focus on user-friendly technology, using a custom-built API to mint and evolve GigaJims directly on the Polygon blockchain. This seamless, frictionless experience catered to both NFT novices and seasoned collectors. The Meataverse's initial success saw GigaJims quickly claimed and traded on open marketplaces. With its innovative platform and mechanics, the Meataverse is poised for future expansions, blending sophisticated tech with fun, engaging content.",
       responsibilities:
         "I was responsible for implementing UI and animations. The project was unique due to its pixel art graphics which presented a challenge in terms of responsiveness but allowed me to grow significantly in this area.",
-      show: true,
     },
     jj: {
       company: "UNIT9",
@@ -252,7 +248,6 @@ export const globalCopy = {
           type: "video",
         },
       ],
-      show: true,
     },
     wimbledon: {
       company: "UNIT9",
@@ -277,6 +272,32 @@ export const globalCopy = {
         platforms: [Platform.DESKTOP, Platform.MOBILE, Platform.VR],
         awards: ["FWA"],
       },
+      description:
+        "Vodafone brought tennis fans closer to Wimbledon’s rich history with the Wimbledon Walk of Champions, a VR experience that lets users virtually walk the iconic path to Centre Court through the eyes of a player. Guided by British tennis legend Tim Henman, fans navigated through the historic corridors of the stadium, experiencing the excitement and emotions felt by the sport's greatest champions. Along the way, they interacted with bonus content, including videos and live portraits, that deepened their connection to the tournament's storied past.\n\nThe VR experience, built with cutting-edge WebXR technology using PlayCanvas, WebGL, and other advanced tools, debuted live at Wimbledon and was also made available online, reaching a global audience of tennis enthusiasts. This project marked the first time fans could explore this exclusive part of Wimbledon up close, blending the real and virtual worlds in an immersive, educational, and emotional journey that highlighted the tournament's legacy and Vodafone's innovative spirit.",
+      responsibilities:
+        "I was responsible for the frontend communication with PlayCanvas, UI and animations.",
+      assets: [
+        {
+          src: "/videos/w1.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/w2.mp4",
+          type: "video",
+        },
+        {
+          src: "/images/projects/wimbledon/wimbledon-wide.png",
+          type: "image",
+        },
+        {
+          src: "/videos/w3.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/w4.mp4",
+          type: "video",
+        },
+      ],
     },
     riot: {
       company: "UNIT9",
@@ -300,6 +321,24 @@ export const globalCopy = {
         brand: ["Riot Games"],
         platforms: [Platform.MOBILE],
       },
+      assets: [
+        {
+          src: "/videos/riot1.mp4",
+          type: "video",
+        },
+        {
+          src: "/videos/riot2.mp4",
+          type: "video",
+        },
+        {
+          src: "/images/projects/riot/riot.jpg",
+          type: "image",
+        },
+      ],
+      description:
+        "In celebration of the highly anticipated launch of League of Legends: Wild Rift in the U.S. and Latin America, fans were rewarded with the chance to unlock the game a full day ahead of its official release. The Legends of the Rift project was a virtual treasure hunt that allowed players to explore an 8K image—a stunning visual showcasing all 61 champions in the game. Created in collaboration with CGI studio Illusion, this interactive experience invited users to discover hidden crystals within the image, unlocking early access to the game. The mobile experience was designed to be accessible across various devices, offering exclusive content and an engaging way to delve into the rich world of League of Legends.\n\nThe project, developed in just a few short weeks, was a testament to the team's dedication and flawless execution. The treasure hunt featured 61 hotspots and five hidden crystals, which, when unlocked, rewarded players with an early download link and a digital mural. This innovative approach not only built excitement but also deepened fans' connection to the game, resulting in a huge payoff as the launch approached. The campaign successfully harnessed fan enthusiasm, delivering an unforgettable experience that blended art, technology, and the thrill of gaming.",
+      responsibilities:
+        "I was responsible for implementing whole UI. It was my first project as UNIT9er.",
     },
     fh: {
       company: "LIKI MS",
@@ -323,6 +362,20 @@ export const globalCopy = {
         brand: ["LIKI MS", "Frontend House"],
         platforms: [Platform.DESKTOP, Platform.MOBILE],
       },
+      description:
+        "A portfolio website developed to showcase the Frontend House. The site includes multiple sections to highlight various projects and a blog for sharing insights and updates. It also serves to provide information about the company's services, team, and contact details. The site was built using Next.js with Static Site Generation (SSG).",
+      responsibilities:
+        "I was responsible for implementing the UI, animations, CMS and backend integration.",
+      assets: [
+        {
+          src: "/images/projects/fh/fh1.png",
+          type: "image",
+        },
+        {
+          src: "/images/projects/fh/fh2.png",
+          type: "image",
+        },
+      ],
     },
   } satisfies Record<Project, ProjectCopy>,
   pages: {
@@ -370,6 +423,7 @@ export const globalCopy = {
         category: "Category",
         platform: "Platform",
         brand: "Brand",
+        company: "Company",
       },
     },
   },

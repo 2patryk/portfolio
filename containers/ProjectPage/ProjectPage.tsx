@@ -37,6 +37,10 @@ const ProjectPage: FC<ProjectPageProps> = ({ projectCopy }) => {
         </Styled.Description>
         <Styled.Highlights>
           <Highlight
+            label={copy.highlights.company}
+            content={projectCopy.company}
+          />
+          <Highlight
             label={copy.highlights.category}
             content={projectCopy.categories.join(", ")}
           />
