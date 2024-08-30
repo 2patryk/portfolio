@@ -8,9 +8,13 @@ import { useGlobalStore } from "@/utils/global.store";
 
 export type ProjectsGridProps = {
   projects: Array<ProjectCopy>;
+  hasBackgroundEffect?: boolean;
 };
 
-const ProjectsGrid: FC<ProjectsGridProps> = ({ projects }) => {
+const ProjectsGrid: FC<ProjectsGridProps> = ({
+  projects,
+  hasBackgroundEffect = true,
+}) => {
   const { isDesktop } = useGlobalStore();
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.3 });
@@ -18,10 +22,10 @@ const ProjectsGrid: FC<ProjectsGridProps> = ({ projects }) => {
 
   return (
     <Styled.Wrapper ref={ref}>
-      {isDesktop && (
+      {isDesktop && hasBackgroundEffect && (
         <Styled.Background $colors={isInView ? activeProject?.colors : null} />
       )}
-      <Styled.ProjectsContent>
+      <Styled.ProjectsContent $count={projects.length}>
         {projects.map((project) => (
           <ProjectTile
             key={project.name}

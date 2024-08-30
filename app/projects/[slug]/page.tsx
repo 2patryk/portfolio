@@ -14,10 +14,10 @@ type PageProps = {
 
 const getProject = (slug: string) => {
   const project = Object.entries(globalCopy.projects).find(
-    ([, value]) => getSlug(value.name) === slug
+    ([key, value]) => getSlug(value.name) === slug
   );
 
-  return project ? project[1] : null;
+  return project ? { id: project?.[0], ...project?.[1] } : null;
 };
 
 export function generateStaticParams() {

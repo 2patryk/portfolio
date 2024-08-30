@@ -34,11 +34,10 @@ export const Background = styled.div<{
   }
 `;
 
-export const ProjectsContent = styled.div`
+export const ProjectsContent = styled.div<{ $count: number }>`
   ${layoutView};
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  grid-template-rows: repeat(7, minmax(0, 1fr));
   gap: ${({ theme }) => theme.spacing(2)};
 
   & > a {
@@ -47,23 +46,27 @@ export const ProjectsContent = styled.div`
 
   ${mediaTablet(css`
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(5, minmax(0, 1fr));
 
     & > a {
       aspect-ratio: 1 / 1;
     }
-
-    & > a:nth-child(1),
-    & > a:nth-child(4),
-    & > a:nth-child(7) {
-      grid-column: span 2;
-      aspect-ratio: 2 / 0.969;
-    }
   `)}
+
+  ${({ $count }) =>
+    $count > 3 &&
+    css`
+      ${mediaTablet(css`
+        & > a:nth-child(1),
+        & > a:nth-child(4),
+        & > a:nth-child(7) {
+          grid-column: span 2;
+          aspect-ratio: 2 / 0.969;
+        }
+      `)}
+    `}
 
   ${mediaDesktop(css`
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
 
     & > a:nth-child(7) {
       grid-column: unset;

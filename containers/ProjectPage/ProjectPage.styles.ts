@@ -103,3 +103,8 @@ export const WideAsset = styled.div`
     aspect-ratio: 7 / 2;
   `)}
 `;
+
+export const RelatedWrapper = styled.div`
+  ${layoutView};
+  margin-top: ${({ theme }) => theme.spacing(6)};
+`;

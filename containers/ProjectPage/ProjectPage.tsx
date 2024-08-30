@@ -10,6 +10,15 @@ import { formatDate } from "date-fns";
 import Footer from "@/components/molecules/Footer/Footer";
 import Asset from "@/components/atoms/Asset/Asset";
 import Heading from "@/components/atoms/Heading/Heading";
+import ProjectsGrid from "@/components/organisms/ProjectsGrid/ProjectsGrid";
+import { Project, projectsOrder } from "@/utils/config";
+
+const getRelatedProjects = (_project: Project) => {
+  return projectsOrder
+    .filter((project) => project !== (_project as Project))
+    .map((project) => globalCopy.projects[project])
+    .slice(0, 3);
+};
 
 export type ProjectPageProps = {
   projectCopy: ProjectCopy;
@@ -25,6 +34,11 @@ const ProjectPage: FC<ProjectPageProps> = ({ projectCopy }) => {
       wide: projectCopy.assets.filter((asset) => asset.size === "wide"),
     };
   }, [projectCopy.assets]);
+
+  const relatedProjects = useMemo(
+    () => getRelatedProjects(projectCopy.id as Project),
+    []
+  );
 
   return (
     <Styled.Wrapper>
@@ -87,6 +101,10 @@ const ProjectPage: FC<ProjectPageProps> = ({ projectCopy }) => {
           />
         </Styled.WideAsset>
       )}
+      <Styled.RelatedWrapper>
+        <Heading label={copy.related} />
+      </Styled.RelatedWrapper>
+      <ProjectsGrid projects={relatedProjects} hasBackgroundEffect={false} />
       <Footer />
     </Styled.Wrapper>
   );

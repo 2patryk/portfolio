@@ -22,6 +22,7 @@ export type Asset = {
 };
 
 export type ProjectCopy = {
+  id?: string;
   company: string;
   categories: Array<Category>;
   name: string;
@@ -425,6 +426,7 @@ export const globalCopy = {
         brand: "Brand",
         company: "Company",
       },
+      related: "See different projects",
     },
   },
   footer: {
