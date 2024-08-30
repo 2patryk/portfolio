@@ -38,8 +38,6 @@ export default function RootLayout({
     setIsDesktop(!checkIfMobile());
   }, []);
 
-  console.log(headerTheme);
-
   return (
     <html
       suppressHydrationWarning
