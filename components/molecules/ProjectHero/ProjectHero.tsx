@@ -38,6 +38,7 @@ const ProjectHero: FC<ProjectHeroProps> = ({ projectCopy: copy }) => {
             alt={copy.alts.background}
             src={copy.background}
             quality={95}
+            unoptimized
           />
           <Styled.Mask $colors={copy.colors} />
         </Styled.BackgroundWrapper>

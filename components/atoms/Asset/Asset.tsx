@@ -10,7 +10,7 @@ export type AssetProps = {
 const Asset: FC<AssetProps> = ({ src, alt, type }) => {
   return type === "image" ? (
     <Styled.ImageWrapper>
-      <Styled.Image src={src} alt={alt} fill />
+      <Styled.Image src={src} alt={alt} fill unoptimized />
     </Styled.ImageWrapper>
   ) : (
     <Styled.Video src={src} autoPlay muted playsInline loop />

@@ -30,6 +30,7 @@ const ProjectTile: FC<ProjectTileProps> = ({
         fill
         alt={project.alts.background}
         src={project.background}
+        unoptimized
       />
       <Styled.Mask $colors={project.colors} />
       <Styled.AboutBox $colors={project.colors}>
