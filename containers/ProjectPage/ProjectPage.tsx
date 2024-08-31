@@ -48,7 +48,7 @@ const ProjectPage: FC<ProjectPageProps> = ({ projectCopy }) => {
   );
 
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper key={projectCopy.name}>
       <ProjectHero projectCopy={projectCopy} />
       <Styled.Content>
         <Styled.Description>

@@ -12,6 +12,7 @@ import Header from "@/components/molecules/Header/Header";
 import { useEffect } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { checkIfMobile } from "@/utils/platform";
+import { AnimatePresence } from "framer-motion";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -51,7 +52,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Header overrideTheme={headerTheme} />
-            {children}
+            <AnimatePresence mode="wait">{children}</AnimatePresence>
             <Loading isLoading={isLoading} />
           </ThemeProvider>
         </StyledComponentsRegistry>

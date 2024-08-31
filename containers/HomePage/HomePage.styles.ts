@@ -1,5 +1,9 @@
-import { fluidView, hover, layoutView, outlineOnFocus } from "@/utils/styles/mixins";
-import { mediaDesktop, mediaTablet } from "@/utils/styles/responsive";
+import {
+  fluidView,
+  hover,
+  outlineOnFocus,
+} from "@/utils/styles/mixins";
+import { mediaTablet } from "@/utils/styles/responsive";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.main`
