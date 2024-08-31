@@ -176,6 +176,9 @@ export const globalCopy = {
         role: "Frontend developer",
         brand: ["Slim Jim"],
         platforms: [Platform.DESKTOP, Platform.MOBILE],
+        awards: [
+          "AI, Metaverse & Virtual, Best Community Engagement Honoree, 2024",
+        ],
       },
       assets: [
         {

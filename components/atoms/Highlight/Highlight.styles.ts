@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing(2)};
 `;
 
 export const Label = styled.h3`
@@ -23,4 +24,5 @@ export const Body = styled.p`
   /* padding: 0 ${({ theme }) => theme.spacing(1)}; */
   font-weight: 400;
   text-transform: capitalize;
+  text-align: right;
 `;
