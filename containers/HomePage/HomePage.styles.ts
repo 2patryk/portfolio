@@ -1,9 +1,5 @@
-import {
-  fluidView,
-  hover,
-  outlineOnFocus,
-} from "@/utils/styles/mixins";
-import { mediaTablet } from "@/utils/styles/responsive";
+import { fluidView, hover, outlineOnFocus } from "@/utils/styles/mixins";
+import { mediaTablet, mediaDesktop } from "@/utils/styles/responsive";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.main`
@@ -16,6 +12,10 @@ export const Summary = styled.p`
   white-space: pre-wrap;
 
   ${mediaTablet(css`
+    max-width: 600rem;
+  `)}
+
+  ${mediaDesktop(css`
     max-width: 330rem;
   `)}
 `;
@@ -47,6 +47,12 @@ export const NumbersWrapper = styled.div`
   ${mediaTablet(css`
     justify-content: flex-end;
 
+    & > div {
+      width: 220rem;
+    }
+  `)}
+
+  ${mediaDesktop(css`
     & > div {
       width: 200rem;
     }
