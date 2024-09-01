@@ -66,13 +66,14 @@ export const Highlights = styled.div`
 
 export const Assets = styled.div<{ $count?: number }>`
   ${layoutView};
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: ${({ theme }) => theme.spacing(2)};
   padding: ${({ theme }) => theme.spacing(4)} 0;
 
   & > div,
-  video {
+  & > video {
     aspect-ratio: 3 / 1.8;
   }
 
@@ -100,6 +101,10 @@ export const WideAsset = styled.div`
   ${mediaTablet(css`
     aspect-ratio: 7 / 2;
   `)}
+
+  & > div {
+    height: 100%;
+  }
 `;
 
 export const RelatedWrapper = styled.div`
