@@ -56,7 +56,8 @@ export const globalCopy = {
     name: "Patryk Ordon",
     email: "patrykordon@gmail.com",
     linkedin: "https://www.linkedin.com/in/patrykordon/",
-    lastUpdate: "2024-08-31",
+    github: "https://github.com/2patryk",
+    lastUpdate: "2024-09-03",
   },
   menu: {
     about: "About me",
@@ -434,6 +435,9 @@ export const globalCopy = {
   },
   footer: {
     lastUpdate: "Last update",
+    links: {
+      label:"You can find me on:"
+    }
   },
   errors: {
     notFound: {

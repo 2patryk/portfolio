@@ -8,6 +8,9 @@ import { mediaTablet } from "@/utils/styles/responsive";
 import Link from "next/link";
 import styled, { css } from "styled-components";
 
+import SvgGithub from "@/public/images/github.svg";
+import SvgLinkedin from "@/public/images/linkedin.svg";
+
 export const Wrapper = styled.footer`
   ${layoutView};
   display: flex;
@@ -25,12 +28,27 @@ export const Wrapper = styled.footer`
     justify-content: space-between;
     gap: 0;
   `)}
+
+  a { 
+    ${defaultHover};
+  }
 `;
 
 export const LogoWrapper = styled(Link)`
-  ${defaultHover};
-  width: 16rem;
-  padding: 2rem;
+  width: 12rem;
   display: inline-block;
-  margin-bottom: -3.4rem;
+  margin-bottom: -1.5rem;
+  margin-left: 4rem;
+`;
+
+export const GithubIcon = styled(SvgGithub)`
+  width: 12rem;
+  display: inline-block;
+  margin-bottom: -1.4rem;
+`;
+
+export const LinkedinIcon = styled(SvgLinkedin)`
+  width: 10rem;
+  display: inline-block;
+  margin: 0 2rem 0;
 `;

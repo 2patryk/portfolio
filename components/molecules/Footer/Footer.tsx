@@ -10,11 +10,17 @@ const Footer: FC<FooterProps> = () => {
   return (
     <Styled.Wrapper>
       <span>
-        © {new Date().getFullYear()}{" "}
+        © {new Date().getFullYear()} {globalCopy.global.name}
+        {" / "}
         <Styled.LogoWrapper href="/">
           <Logo hasFluidSize />
         </Styled.LogoWrapper>{" "}
-        {globalCopy.global.name}
+        <a target="_blank" href={globalCopy.global.linkedin}>
+          <Styled.LinkedinIcon />
+        </a>{" "}
+        <a target="_blank" href={globalCopy.global.github}>
+          <Styled.GithubIcon />
+        </a>
       </span>
 
       <span>
