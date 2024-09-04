@@ -29,7 +29,7 @@ export const Wrapper = styled.footer`
     gap: 0;
   `)}
 
-  a { 
+  a {
     ${defaultHover};
   }
 `;
@@ -38,7 +38,7 @@ export const LogoWrapper = styled(Link)`
   width: 12rem;
   display: inline-block;
   margin-bottom: -1.5rem;
-  margin-left: 4rem;
+  margin-left: 6rem;
 `;
 
 export const GithubIcon = styled(SvgGithub)`
@@ -50,5 +50,8 @@ export const GithubIcon = styled(SvgGithub)`
 export const LinkedinIcon = styled(SvgLinkedin)`
   width: 10rem;
   display: inline-block;
-  margin: 0 2rem 0;
+`;
+
+export const Anchor = styled.a`
+  margin: 0 6rem 0;
 `;
