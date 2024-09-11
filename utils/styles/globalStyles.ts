@@ -28,13 +28,13 @@ const style = css`
 
   ::selection {
     background: ${({ theme }) => theme.colors.backgroundExtra};
-    color: ${({ theme }) => theme.colors.textInverted};
+    color: ${({ theme }) => theme.colors.textSecondary};
     text-shadow: none;
   }
 
   ::-moz-selection {
     background: ${({ theme }) => theme.colors.backgroundExtra};
-    color: ${({ theme }) => theme.colors.textInverted};
+    color: ${({ theme }) => theme.colors.textSecondary};
     text-shadow: none;
   }
 

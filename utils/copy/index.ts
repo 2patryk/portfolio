@@ -57,7 +57,7 @@ export const globalCopy = {
     email: "patrykordon@gmail.com",
     linkedin: "https://www.linkedin.com/in/patrykordon/",
     github: "https://github.com/2patryk",
-    lastUpdate: "2024-09-03",
+    lastUpdate: "2024-09-11",
   },
   menu: {
     about: "About me",
