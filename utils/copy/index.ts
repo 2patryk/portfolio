@@ -396,7 +396,7 @@ export const globalCopy = {
       about: {
         label: "About me",
         summary:
-          "Frontend developer with six years of experience building dynamic, high-performance web applications in Next.js, React, and TypeScript. I've shipped projects for brands such as Meta, Coca-Cola, Nike, Riot, Puma, and MTV, with a consistent focus on user experience, performance, and maintainable code.",
+          "Frontend developer with six years of experience building dynamic, high-performance web applications in Next.js, React, and TypeScript. I've shipped projects for brands such as Meta, Coca-Cola, Nike, Riot, Puma, and MTV, and more recently focused on banking and financial products—with a consistent emphasis on user experience, performance, and maintainable code.",
         numbers: [
           { count: 6, label: "YEARS\nOF EXPERIENCE" },
           { count: 20, label: "CRAFTED\nPROJECTS" },
