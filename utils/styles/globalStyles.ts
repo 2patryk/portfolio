@@ -10,6 +10,14 @@ const style = css`
     ${Object.entries(lightColors).map(([key, value]) => `--${key}: ${value};`)}
   }
 
+  /* Fallback: dark theme before JS runs – prevents flash to light on dark system theme */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      ${Object.entries(darkColors).map(([key, value]) => `--${key}: ${value};`)}
+    }
+  }
+
   :root[data-theme="dark"] {
     color-scheme: dark;
     ${Object.entries(darkColors).map(([key, value]) => `--${key}: ${value};`)}

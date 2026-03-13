@@ -20,7 +20,6 @@ const code = function () {
 
   try {
     preferredTheme = localStorage.getItem("theme");
-    console.log('preferredTheme', preferredTheme);
   } catch (err) {}
 
   window.__setPreferredTheme = function (newTheme: any) {

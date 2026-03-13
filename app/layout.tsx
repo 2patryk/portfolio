@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "@/utils/styles/theme";
 import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
+import { criticalThemeCss } from "@/utils/styles/criticalThemeCss";
 import Loading from "@/components/molecules/Loading/Loading";
 import { useGlobalStore } from "@/utils/global.store";
 import Header from "@/components/molecules/Header/Header";
@@ -45,6 +46,7 @@ export default function RootLayout({
       className={`${figtree.variable} ${syne.variable}`}
     >
       <head>
+        <style dangerouslySetInnerHTML={{ __html: criticalThemeCss }} />
         <script dangerouslySetInnerHTML={{ __html: getTheme }} />
       </head>
       <body>
