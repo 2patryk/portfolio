@@ -15,10 +15,10 @@ const Footer: FC<FooterProps> = () => {
         <Styled.LogoWrapper href="/">
           <Logo hasFluidSize />
         </Styled.LogoWrapper>{" "}
-        <Styled.Anchor target="_blank" href={globalCopy.global.linkedin}>
+        <Styled.Anchor target="_blank" rel="noreferrer" href={globalCopy.global.linkedin}>
           <Styled.LinkedinIcon />
         </Styled.Anchor>{" "}
-        <a target="_blank" href={globalCopy.global.github}>
+        <a target="_blank" rel="noreferrer" href={globalCopy.global.github}>
           <Styled.GithubIcon />
         </a>
       </span>

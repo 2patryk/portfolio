@@ -11,7 +11,7 @@ const PanoNavigation: FC<PanoNavigationProps> = () => {
       <ul>
         {PANO_DATA.map((pano) => (
           <li key={pano.slug}>
-            <Styled.NavLink href={`/pano/${pano.slug}`}>
+            <Styled.NavLink href={`/pano/${pano.slug}` as Parameters<typeof Styled.NavLink>[0]["href"]}>
               {pano.place}
             </Styled.NavLink>
           </li>

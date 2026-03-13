@@ -391,7 +391,7 @@ export const globalCopy = {
         prePosition: "a",
         position: "Creative Frontend Developer",
         description:
-          "I build polished, performant web experiences with a strong focus on UX and visual craft.",
+          "I build polished, performant web experiences with a strong focus on UX and visual craft",
       },
       about: {
         label: "About me",
