@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "generate-planets": "rm -f public/images/pano/planets/*.jpg && node scripts/generate-planet-thumbs.js",
+    "dev": "node scripts/generate-planet-thumbs.js && next dev",
+    "build": "node scripts/generate-planet-thumbs.js && next build",
     "start": "next start",
     "lint": "next lint",
     "new-component": "node ./scripts/component.js",
@@ -52,6 +53,7 @@
     "file-loader": "^6.2.0",
     "maxstache": "1.0.7",
     "minimist": "1.2.8",
+    "sharp": "^0.34.5",
     "storybook": "^8.6.18"
   }
 }
