@@ -48,7 +48,9 @@ export type PanoType = {
 
 const withPlanet = (entry: Omit<PanoType, "planet">): PanoType => ({
   ...entry,
-  planet: entry.src.replace("/images/pano/", "/images/pano/planets/"),
+  planet: entry.src
+    .replace("/images/pano/", "/images/pano/planets/")
+    .replace(/\.[^.]+$/, ".jpg"),
 });
 
 export const getPanoText = (pano: PanoType, lang: PanoLang = "en") => {
@@ -71,6 +73,7 @@ export const PANO_DATA: PanoType[] = [
   withPlanet({ src: "/images/pano/ela.jpg", slug: "elafonissi", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/fue.jpg", slug: "costa-calma", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/las_teresitas.jpg", slug: "las-teresitas", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/playa_benijo.JPG", slug: "playa-benijo", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/liz.jpg", slug: "alfama", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
   withPlanet({ src: "/images/pano/liz2.jpg", slug: "lisbon", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
   withPlanet({ src: "/images/pano/lks.jpg", slug: "lks-lodz", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture] }),
