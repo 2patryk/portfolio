@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import { layoutView } from "@/utils/styles/mixins";
 
 export const Wrapper = styled.main`
   min-height: 100vh;
-  padding: 64rem 0;
+  padding: 32rem 0 64rem;
   background: ${({ theme }) => theme.colors.background};
   display: flex;
   justify-content: center;
@@ -15,6 +14,45 @@ export const Wrapper = styled.main`
 
 export const Inner = styled.div`
   ${layoutView}
+  display: flex;
+  flex-direction: column;
+  gap: 40rem;
+`;
+
+export const Header = styled.header`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+`;
+
+export const Title = styled.h1`
+  font-family: var(--syne);
+  font-size: 28rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  margin: 0;
+`;
+
+export const ByLine = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  font-family: var(--figtree);
+  font-size: 11rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+`;
+
+export const LogoWrapper = styled.span`
+  width: 14rem;
+  display: inline-flex;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const Grid = styled.ul`
@@ -95,18 +133,4 @@ export const Meta = styled.p`
   font-size: 11rem;
   color: ${({ theme }) => theme.colors.textSecondary};
   margin: 0;
-`;
-
-export const TransitionOverlay = styled(motion.div)`
-  position: fixed;
-  overflow: hidden;
-  z-index: 1000;
-  pointer-events: none;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
 `;
