@@ -221,7 +221,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
                       onClick={() => navigator.clipboard.writeText(`yaw: "${debugPos.yaw}", pitch: "${debugPos.pitch}"`)}
                       title="click to copy"
                     >
-                      yaw: "{debugPos.yaw}"<br />pitch: "{debugPos.pitch}"
+                      {`yaw: "${debugPos.yaw}"`}<br />{`pitch: "${debugPos.pitch}"`}
                     </Styled.DebugCode>
                   </Styled.DebugEntry>
                 )}
@@ -232,7 +232,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
                       onClick={() => navigator.clipboard.writeText(`yaw: "${pos.yaw}", pitch: "${pos.pitch}"`)}
                       title="click to copy"
                     >
-                      yaw: "{pos.yaw}"<br />pitch: "{pos.pitch}"
+                      {`yaw: "${pos.yaw}"`}<br />{`pitch: "${pos.pitch}"`}
                     </Styled.DebugCode>
                   </Styled.DebugEntry>
                 ))}
