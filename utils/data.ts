@@ -29,7 +29,7 @@ export enum PanoCategory {
 
 export type PanoLang = "en" | "pl";
 
-const locales: Record<PanoLang, typeof enLocale> = { en: enLocale, pl: plLocale };
+export const panoCopy: Record<PanoLang, typeof enLocale> = { en: enLocale, pl: plLocale };
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -51,8 +51,8 @@ const withPlanet = (entry: Omit<PanoType, "planet">): PanoType => ({
 });
 
 export const getPanoText = (pano: PanoType, lang: PanoLang = "en") => {
-  const l = locales[lang];
-  const en = locales.en;
+  const l = panoCopy[lang];
+  const en = panoCopy.en;
   return {
     place: l.places[pano.slug as keyof typeof en.places] ?? en.places[pano.slug as keyof typeof en.places],
     region: l.regions[pano.region] ?? en.regions[pano.region],
@@ -61,7 +61,7 @@ export const getPanoText = (pano: PanoType, lang: PanoLang = "en") => {
 };
 
 export const getPanoCategoryLabel = (category: PanoCategory, lang: PanoLang = "en") =>
-  locales[lang].categories[category];
+  panoCopy[lang].categories[category];
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 

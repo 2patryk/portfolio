@@ -55,6 +55,61 @@ export const LogoWrapper = styled.span`
   color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
+export const Filters = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8rem;
+`;
+
+export const FilterGroup = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6rem;
+`;
+
+export const FilterDivider = styled.div`
+  width: 1px;
+  height: 14rem;
+  background: ${({ theme }) => theme.colors.backgroundExtra};
+  flex-shrink: 0;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+export const FilterPill = styled.button<{ $active?: boolean }>`
+  height: 26rem;
+  padding: 0 10rem;
+  border-radius: 13rem;
+  border: 1px solid ${({ $active, theme }) =>
+    $active ? theme.colors.textPrimary : theme.colors.backgroundExtra};
+  background: ${({ $active, theme }) =>
+    $active ? theme.colors.textPrimary : "transparent"};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.background : theme.colors.textSecondary};
+  font-family: var(--figtree);
+  font-size: 11rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.textPrimary};
+    color: ${({ $active, theme }) => !$active && theme.colors.textPrimary};
+  }
+`;
+
+export const EmptyState = styled.p`
+  font-family: var(--figtree);
+  font-size: 13rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  grid-column: 1 / -1;
+  padding: 40rem 0;
+`;
+
 export const Grid = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 1fr);

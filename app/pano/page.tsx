@@ -1,5 +1,6 @@
 import PanoGrid from "@/components/organisms/PanoGrid/PanoGrid";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Pano – Patryk Ordon",
@@ -14,5 +15,9 @@ export const metadata: Metadata = {
 };
 
 export default function PanoPage() {
-  return <PanoGrid />;
+  return (
+    <Suspense>
+      <PanoGrid />
+    </Suspense>
+  );
 }
