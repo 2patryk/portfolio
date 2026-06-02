@@ -1,4 +1,4 @@
-import { PANO_DATA } from "@/utils/data";
+import { PANO_DATA, getPanoText } from "@/utils/data";
 import { FC } from "react";
 
 import * as Styled from "./PanoNavigation.styles";
@@ -12,7 +12,7 @@ const PanoNavigation: FC<PanoNavigationProps> = () => {
         {PANO_DATA.map((pano) => (
           <li key={pano.slug}>
             <Styled.NavLink href={`/pano/${pano.slug}` as Parameters<typeof Styled.NavLink>[0]["href"]}>
-              {pano.place}
+              {getPanoText(pano).place}
             </Styled.NavLink>
           </li>
         ))}

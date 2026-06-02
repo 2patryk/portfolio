@@ -2,7 +2,7 @@
 
 import { FC, useRef, useState } from "react";
 import * as Styled from "./Pano.styles";
-import { PANO_DATA, PanoType } from "@/utils/data";
+import { PANO_DATA, PanoType, getPanoText } from "@/utils/data";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import {
@@ -25,9 +25,11 @@ const Pano: FC<PanoProps> = ({ pano }) => {
   const viewerRef = useRef<any>(null);
   const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
+  const { place, region, country } = getPanoText(pano);
   const visiblePanos = PANO_DATA.filter((p) => !p.hidden);
   const currentIndex = visiblePanos.findIndex((p) => p.slug === pano.slug);
   const nextPano = visiblePanos[(currentIndex + 1) % visiblePanos.length];
+  const { place: nextPlace } = getPanoText(nextPano);
 
   const plugins = [
     [
@@ -126,10 +128,8 @@ const Pano: FC<PanoProps> = ({ pano }) => {
             <Styled.Overlay>
               <Styled.Details>
                 <Styled.Label>360° Panorama</Styled.Label>
-                <Styled.Title>{pano.place}</Styled.Title>
-                <Styled.Subtitle>
-                  {pano.region} · {pano.country}
-                </Styled.Subtitle>
+                <Styled.Title>{place}</Styled.Title>
+                <Styled.Subtitle>{region} · {country}</Styled.Subtitle>
                 <Styled.Controls>
               <Styled.PlayPauseButton onClick={toggleAutorotate} aria-label={isPlaying ? "Pause rotation" : "Play rotation"}>
                 {isPlaying ? (
@@ -147,7 +147,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
                 onClick={() => router.push(`/pano/${nextPano.slug}`)}
                 aria-label="Next panorama"
               >
-                <span>{nextPano.place.length > 20 ? nextPano.place.slice(0, 19) + "…" : nextPano.place}</span>
+                <span>{nextPlace.length > 20 ? nextPlace.slice(0, 19) + "…" : nextPlace}</span>
                 <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0 1 L7 6 L0 11 Z" />
                   <rect x="8.5" y="1" width="1.5" height="10" rx="0.75" />

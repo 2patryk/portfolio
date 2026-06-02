@@ -1,29 +1,81 @@
+import enLocale from "./pano/en.json";
+import plLocale from "./pano/pl.json";
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+export enum PanoCountry {
+  Greece = "greece",
+  Spain = "spain",
+  Portugal = "portugal",
+  Poland = "poland",
+}
+
+export enum PanoRegion {
+  Crete = "crete",
+  Fuerteventura = "fuerteventura",
+  Lisbon = "lisbon",
+  Lodz = "lodz",
+  Wroclaw = "wroclaw",
+}
+
+export enum PanoCategory {
+  Beach = "beach",
+  City = "city",
+  Nature = "nature",
+  Architecture = "architecture",
+}
+
+// ─── Locales ──────────────────────────────────────────────────────────────────
+
+export type PanoLang = "en" | "pl";
+
+const locales: Record<PanoLang, typeof enLocale> = { en: enLocale, pl: plLocale };
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 export type PanoType = {
   src: string;
   planet: string;
-  place: string;
-  country: string;
-  region: string;
   slug: string;
+  region: PanoRegion;
+  country: PanoCountry;
+  categories: PanoCategory[];
   hidden?: boolean;
 };
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const withPlanet = (entry: Omit<PanoType, "planet">): PanoType => ({
   ...entry,
   planet: entry.src.replace("/images/pano/", "/images/pano/planets/"),
 });
 
+export const getPanoText = (pano: PanoType, lang: PanoLang = "en") => {
+  const l = locales[lang];
+  const en = locales.en;
+  return {
+    place: l.places[pano.slug as keyof typeof en.places] ?? en.places[pano.slug as keyof typeof en.places],
+    region: l.regions[pano.region] ?? en.regions[pano.region],
+    country: l.countries[pano.country] ?? en.countries[pano.country],
+  };
+};
+
+export const getPanoCategoryLabel = (category: PanoCategory, lang: PanoLang = "en") =>
+  locales[lang].categories[category];
+
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
 export const PANO_DATA: PanoType[] = [
-  withPlanet({ src: "/images/pano/balos.jpg", place: "Balos", country: "Greece", region: "Crete", slug: "balos" }),
-  withPlanet({ src: "/images/pano/ela.jpg", place: "Elafonissi", country: "Greece", region: "Crete", slug: "elafonissi" }),
-  withPlanet({ src: "/images/pano/fue.jpg", place: "Costa Calma", region: "Fuerteventura", country: "Spain", slug: "costa-calma" }),
-  withPlanet({ src: "/images/pano/liz.jpg", place: "Alfama", region: "Lisbon", country: "Portugal", slug: "alfama" }),
-  withPlanet({ src: "/images/pano/liz2.jpg", place: "Ponte 25 de Abril", region: "Lisbon", country: "Portugal", slug: "lisbon" }),
-  withPlanet({ src: "/images/pano/lks.jpg", place: "ŁKS Stadium", region: "Łódź", country: "Poland", slug: "lks-lodz" }),
-  withPlanet({ src: "/images/pano/vul.jpg", place: "Calderón Hondo", region: "Fuerteventura", country: "Spain", slug: "calderon-hondo" }),
-  withPlanet({ src: "/images/pano/wro.jpg", place: "Market Square", region: "Wrocław", country: "Poland", slug: "wroclaw" }),
-  withPlanet({ src: "/images/pano/fue2.jpg", place: "Playa de la Pared", region: "Fuerteventura", country: "Spain", slug: "playa-pared" }),
-  withPlanet({ src: "/images/pano/wro2.jpg", place: "Odra sunset", region: "Wrocław", country: "Poland", slug: "wroclaw-odra" }),
-  withPlanet({ src: "/images/pano/m1.jpg", place: "Maczka budowa", region: "Łódź", country: "Poland", slug: "maczka-1", hidden: true }),
-  withPlanet({ src: "/images/pano/m2.jpg", place: "Maczka budowa", region: "Łódź", country: "Poland", slug: "maczka-2", hidden: true }),
+  withPlanet({ src: "/images/pano/balos.jpg", slug: "balos", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/ela.jpg", slug: "elafonissi", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/fue.jpg", slug: "costa-calma", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/liz.jpg", slug: "alfama", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
+  withPlanet({ src: "/images/pano/liz2.jpg", slug: "lisbon", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
+  withPlanet({ src: "/images/pano/lks.jpg", slug: "lks-lodz", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture] }),
+  withPlanet({ src: "/images/pano/vul.jpg", slug: "calderon-hondo", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/wro.jpg", slug: "wroclaw", region: PanoRegion.Wroclaw, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture] }),
+  withPlanet({ src: "/images/pano/fue2.jpg", slug: "playa-pared", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/wro2.jpg", slug: "wroclaw-odra", region: PanoRegion.Wroclaw, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/m1.jpg", slug: "maczka-1", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.Architecture], hidden: true }),
+  withPlanet({ src: "/images/pano/m2.jpg", slug: "maczka-2", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.Architecture], hidden: true }),
 ];

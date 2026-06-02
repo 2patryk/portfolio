@@ -1,0 +1,35 @@
+{
+  "countries": {
+    "greece": "Greece",
+    "spain": "Spain",
+    "portugal": "Portugal",
+    "poland": "Poland"
+  },
+  "regions": {
+    "crete": "Crete",
+    "fuerteventura": "Fuerteventura",
+    "lisbon": "Lisbon",
+    "lodz": "Łódź",
+    "wroclaw": "Wrocław"
+  },
+  "categories": {
+    "beach": "Beach",
+    "city": "City",
+    "nature": "Nature",
+    "architecture": "Architecture"
+  },
+  "places": {
+    "balos": "Balos",
+    "elafonissi": "Elafonissi",
+    "costa-calma": "Costa Calma",
+    "alfama": "Alfama",
+    "lisbon": "Ponte 25 de Abril",
+    "lks-lodz": "ŁKS Stadium",
+    "calderon-hondo": "Calderón Hondo",
+    "wroclaw": "Market Square",
+    "playa-pared": "Playa de la Pared",
+    "wroclaw-odra": "Odra Sunset",
+    "maczka-1": "Maczka – Construction",
+    "maczka-2": "Maczka – Construction II"
+  }
+}
