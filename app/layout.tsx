@@ -7,13 +7,7 @@ import { theme } from "@/utils/styles/theme";
 import GlobalStyles from "@/utils/styles/globalStyles";
 import { getTheme } from "@/utils/styles/getTheme";
 import { criticalThemeCss } from "@/utils/styles/criticalThemeCss";
-import Loading from "@/components/molecules/Loading/Loading";
-import { useGlobalStore } from "@/utils/global.store";
-import Header from "@/components/molecules/Header/Header";
-import { useEffect } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { checkIfMobile } from "@/utils/platform";
-import { AnimatePresence } from "framer-motion";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -32,14 +26,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isLoading, setIsLoading, setIsDesktop, isDesktop, headerTheme } =
-    useGlobalStore();
-
-  useEffect(() => {
-    setIsLoading(false);
-    setIsDesktop(!checkIfMobile());
-  }, []);
-
   return (
     <html
       suppressHydrationWarning
@@ -53,9 +39,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <Header overrideTheme={headerTheme} />
-            <AnimatePresence mode="wait">{children}</AnimatePresence>
-            <Loading isLoading={isLoading} />
+            {children}
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
