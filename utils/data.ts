@@ -35,6 +35,13 @@ export const panoCopy: Record<PanoLang, typeof enLocale> = { en: enLocale, pl: p
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
+export type PanoMarker = {
+  id: string;
+  yaw: string;
+  pitch: string;
+  tooltip?: string;
+};
+
 export type PanoType = {
   src: string;
   planet: string;
@@ -43,6 +50,7 @@ export type PanoType = {
   country: PanoCountry;
   categories: PanoCategory[];
   hidden?: boolean;
+  markers?: PanoMarker[];
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -75,7 +83,17 @@ export const PANO_DATA: PanoType[] = [
   withPlanet({ src: "/images/pano/fue.jpg", slug: "costa-calma", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/las_teresitas.jpg", slug: "las-teresitas", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/playa_benijo.JPG", slug: "playa-benijo", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
-  withPlanet({ src: "/images/pano/formentor.jpg", slug: "formentor", region: PanoRegion.Mallorca, country: PanoCountry.Spain, categories: [PanoCategory.Nature] }),
+  withPlanet({
+    src: "/images/pano/formentor.jpg",
+    slug: "formentor",
+    region: PanoRegion.Mallorca,
+    country: PanoCountry.Spain,
+    categories: [PanoCategory.Nature],
+    markers: [
+      { id: "mirador", yaw: "359.13deg", pitch: "-28.29deg", tooltip: "Mirador de Es Colomer" },
+      { id: "me", yaw: "169.45deg", pitch: "-27.55deg", tooltip: "ME" },
+    ],
+  }),
   withPlanet({ src: "/images/pano/liz.jpg", slug: "alfama", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
   withPlanet({ src: "/images/pano/liz2.jpg", slug: "lisbon", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
   withPlanet({ src: "/images/pano/lks.jpg", slug: "lks-lodz", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture] }),

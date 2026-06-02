@@ -11,6 +11,62 @@ export const Wrapper = styled.div`
   .psv-loader-container {
     display: none;
   }
+
+  .pano-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .pano-marker__label {
+    font-family: var(--figtree);
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  }
+
+  .pano-marker__line {
+    width: 1px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.55);
+    flex-shrink: 0;
+  }
+
+  .pano-marker__pin {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pano-marker__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    animation: marker-pulse 2s ease-in-out infinite;
+  }
+
+  .pano-marker__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes marker-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.5); opacity: 0.1; }
+  }
 `;
 
 export const LoadingOverlay = styled(motion.div)`
@@ -270,6 +326,57 @@ export const PlayPauseButton = styled.button`
   &:hover {
     opacity: 1;
     border-color: rgba(255, 255, 255, 0.5);
+  }
+`;
+
+export const DebugPanel = styled.div`
+  position: fixed;
+  top: 70rem;
+  right: 16rem;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 100, 0.4);
+  border-radius: 8rem;
+  padding: 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  z-index: 100;
+  pointer-events: all;
+  max-width: 220rem;
+`;
+
+export const DebugEntry = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+`;
+
+export const DebugLabel = styled.span`
+  font-family: var(--figtree);
+  font-size: 9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 100, 0.7);
+`;
+
+export const DebugCode = styled.div`
+  font-family: monospace;
+  font-size: 10rem;
+  color: #fff;
+  line-height: 1.5;
+  cursor: pointer;
+  padding: 6rem 8rem;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 4rem;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  &:active {
+    background: rgba(255, 255, 100, 0.2);
   }
 `;
 
