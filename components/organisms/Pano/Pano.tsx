@@ -2,7 +2,7 @@
 
 import { FC, useRef, useState } from "react";
 import * as Styled from "./Pano.styles";
-import { PANO_DATA, PanoType, getPanoText } from "@/utils/data";
+import { PANO_DATA, PanoType, getPanoText, getPanoMarkerTooltip } from "@/utils/data";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import {
@@ -41,7 +41,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
   const toDeg = (rad: number) => `${(rad * 180 / Math.PI).toFixed(2)}deg`;
 
   const markerHtml = (tooltip?: string) =>
-    `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;">
+    `<div style="display:flex;flex-direction:column;align-items:center;pointer-events:none;">
       ${tooltip ? `<span style="font-family:var(--figtree);font-size:11px;font-weight:500;color:#fff;white-space:nowrap;text-shadow:0 1px 6px rgba(0,0,0,0.7);margin-bottom:5px;">${tooltip}</span>` : ""}
       <div style="width:1px;height:22px;background:rgba(255,255,255,0.55);flex-shrink:0;"></div>
       <div style="position:relative;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -53,7 +53,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
   const markers = pano.markers?.map((m) => ({
     id: m.id,
     position: { yaw: m.yaw, pitch: m.pitch },
-    html: markerHtml(m.tooltip),
+    html: markerHtml(getPanoMarkerTooltip(m.id)),
     anchor: "bottom center",
     draggable: IS_DEV,
   })) ?? [];

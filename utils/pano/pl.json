@@ -20,6 +20,10 @@
     "nature": "Natura",
     "architecture": "Architektura"
   },
+  "markers": {
+    "me": "Ja",
+    "mirador": "Mirador de Es Colomer"
+  },
   "places": {
     "balos": "Balos",
     "elafonissi": "Elafonissi",

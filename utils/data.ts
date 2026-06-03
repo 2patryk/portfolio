@@ -39,7 +39,6 @@ export type PanoMarker = {
   id: string;
   yaw: string;
   pitch: string;
-  tooltip?: string;
 };
 
 export type PanoType = {
@@ -75,13 +74,18 @@ export const getPanoText = (pano: PanoType, lang: PanoLang = "en") => {
 export const getPanoCategoryLabel = (category: PanoCategory, lang: PanoLang = "en") =>
   panoCopy[lang].categories[category];
 
+export const getPanoMarkerTooltip = (markerId: string, lang: PanoLang = "en"): string | undefined => {
+  const markers = panoCopy[lang].markers as Record<string, string>;
+  return markers[markerId] ?? (panoCopy.en.markers as Record<string, string>)[markerId];
+};
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 export const PANO_DATA: PanoType[] = [
   withPlanet({ src: "/images/pano/balos.jpg", slug: "balos", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
-  withPlanet({ src: "/images/pano/ela.jpg", slug: "elafonissi", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
-  withPlanet({ src: "/images/pano/fue.jpg", slug: "costa-calma", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
-  withPlanet({ src: "/images/pano/las_teresitas.jpg", slug: "las-teresitas", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/ela.jpg", slug: "elafonissi", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "246.42deg", pitch: "-19.04deg" }] }),
+  withPlanet({ src: "/images/pano/fue.jpg", slug: "costa-calma", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "223.67deg", pitch: "5.29deg" }] }),
+  withPlanet({ src: "/images/pano/las_teresitas.jpg", slug: "las-teresitas", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "14.83deg", pitch: "-17.15deg" }] }),
   withPlanet({ src: "/images/pano/playa_benijo.JPG", slug: "playa-benijo", region: PanoRegion.Tenerife, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({
     src: "/images/pano/formentor.jpg",
@@ -90,14 +94,14 @@ export const PANO_DATA: PanoType[] = [
     country: PanoCountry.Spain,
     categories: [PanoCategory.Nature],
     markers: [
-      { id: "mirador", yaw: "359.13deg", pitch: "-28.29deg", tooltip: "Mirador de Es Colomer" },
-      { id: "me", yaw: "169.45deg", pitch: "-27.55deg", tooltip: "ME" },
+      { id: "mirador", yaw: "359.13deg", pitch: "-28.29deg" },
+      { id: "me", yaw: "169.45deg", pitch: "-27.55deg" },
     ],
   }),
   withPlanet({ src: "/images/pano/liz.jpg", slug: "alfama", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
   withPlanet({ src: "/images/pano/liz2.jpg", slug: "lisbon", region: PanoRegion.Lisbon, country: PanoCountry.Portugal, categories: [PanoCategory.City, PanoCategory.Architecture] }),
-  withPlanet({ src: "/images/pano/lks.jpg", slug: "lks-lodz", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture] }),
-  withPlanet({ src: "/images/pano/vul.jpg", slug: "calderon-hondo", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/lks.jpg", slug: "lks-lodz", region: PanoRegion.Lodz, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture], markers: [{ id: "me", yaw: "197.45deg", pitch: "-41.62deg" }] }),
+  withPlanet({ src: "/images/pano/vul.jpg", slug: "calderon-hondo", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Nature], markers: [{ id: "me", yaw: "324.79deg", pitch: "-21.87deg" }] }),
   withPlanet({ src: "/images/pano/wro.jpg", slug: "wroclaw", region: PanoRegion.Wroclaw, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Architecture] }),
   withPlanet({ src: "/images/pano/fue2.jpg", slug: "playa-pared", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/wro2.jpg", slug: "wroclaw-odra", region: PanoRegion.Wroclaw, country: PanoCountry.Poland, categories: [PanoCategory.City, PanoCategory.Nature] }),
