@@ -14,6 +14,7 @@ export enum PanoRegion {
   Crete = "crete",
   Fuerteventura = "fuerteventura",
   Tenerife = "tenerife",
+  Rhodes = "rhodes",
   Mallorca = "mallorca",
   Lisbon = "lisbon",
   Lodz = "lodz",
@@ -82,6 +83,7 @@ export const getPanoMarkerTooltip = (markerId: string, lang: PanoLang = "en"): s
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 export const PANO_DATA: PanoType[] = [
+  withPlanet({ src: "/images/pano/rodos.JPG", slug: "anthony-quinn-beach", region: PanoRegion.Rhodes, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/balos.jpg", slug: "balos", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/ela.jpg", slug: "elafonissi", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "246.42deg", pitch: "-19.04deg" }] }),
   withPlanet({ src: "/images/pano/fue.jpg", slug: "costa-calma", region: PanoRegion.Fuerteventura, country: PanoCountry.Spain, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "223.67deg", pitch: "5.29deg" }] }),
