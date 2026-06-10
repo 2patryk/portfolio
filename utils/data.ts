@@ -85,7 +85,7 @@ export const getPanoMarkerTooltip = (markerId: string, lang: PanoLang = "en"): s
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 export const PANO_DATA: PanoType[] = [
-  withPlanet({ src: "/images/pano/afrodite_beach.JPG", slug: "afrodite-beach", region: PanoRegion.Paphos, country: PanoCountry.Cyprus, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
+  withPlanet({ src: "/images/pano/afrodite_beach.JPG", slug: "afrodite-beach", region: PanoRegion.Paphos, country: PanoCountry.Cyprus, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "231.62deg", pitch: "-14.18deg" }] }),
   withPlanet({ src: "/images/pano/rodos.JPG", slug: "anthony-quinn-beach", region: PanoRegion.Rhodes, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/balos.jpg", slug: "balos", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature] }),
   withPlanet({ src: "/images/pano/ela.jpg", slug: "elafonissi", region: PanoRegion.Crete, country: PanoCountry.Greece, categories: [PanoCategory.Beach, PanoCategory.Nature], markers: [{ id: "me", yaw: "246.42deg", pitch: "-19.04deg" }] }),
