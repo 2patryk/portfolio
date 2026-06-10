@@ -1,6 +1,7 @@
 {
   "countries": {
     "greece": "Grecja",
+    "cyprus": "Cypr",
     "spain": "Hiszpania",
     "portugal": "Portugalia",
     "poland": "Polska"
@@ -10,6 +11,7 @@
     "fuerteventura": "Fuerteventura",
     "tenerife": "Teneryfa",
     "rhodes": "Rodos",
+    "paphos": "Pafos",
     "mallorca": "Majorka",
     "lisbon": "Lizbona",
     "lodz": "Łódź",
@@ -41,6 +43,7 @@
     "wroclaw-odra": "Zachód słońca nad Odrą",
     "maczka-1": "Maczka – Budowa",
     "maczka-2": "Maczka – Budowa II",
-    "anthony-quinn-beach": "Plaża Anthonyego Quinna"
+    "anthony-quinn-beach": "Plaża Anthonyego Quinna",
+    "white-river-beach": "White River Beach"
   }
 }
