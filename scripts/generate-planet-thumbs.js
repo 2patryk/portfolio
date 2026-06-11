@@ -50,16 +50,11 @@ async function generatePlanet(inputPath, outputPath) {
 
       const dstIdx = (oy * OUTPUT_SIZE + ox) * 3;
 
-      if (r > cx) {
-        outputData[dstIdx] = 0;
-        outputData[dstIdx + 1] = 0;
-        outputData[dstIdx + 2] = 0;
-        continue;
-      }
-
       // Stereographic projection from south pole (nadir at center)
+      // Clamp r so pixels outside the circle stretch the edge instead of going black
+      const rClamped = Math.min(r, cx);
       const theta = Math.atan2(dy, dx);
-      const phi = -Math.PI / 2 + 2 * Math.atan((r / cx) * ZOOM); // latitude: -π/2 (nadir) at r=0, past equator into sky at r=cx
+      const phi = -Math.PI / 2 + 2 * Math.atan((rClamped / cx) * ZOOM); // latitude: -π/2 (nadir) at r=0, past equator into sky at r=cx
       const lambda = theta - Math.PI / 2; // rotate so panorama front faces bottom of planet
 
       // Map to equirectangular pixel
