@@ -1,89 +1,71 @@
 /**
- * Script to create new vue components and sections.
+ * Script to create new components.
  * @arg ComponentName - required
  * To create a COMPONENT: npm run new-component ComponentName
  */
- const mkdirp = require('mkdirp');
- const path = require('path');
- const fs = require('fs');
- const maxstache = require('maxstache');
- const chalk = require('chalk');
- const changeCase = require('change-case');
- const argv = require('minimist')(process.argv.slice(2));
+const path = require("path");
+const fs = require("fs/promises");
+const { styleText } = require("util");
+const maxstache = require("maxstache");
+const argv = require("minimist")(process.argv.slice(2));
 
- const TYPE = 'component';
- const COMPONENTS_FOLDER = './../components/';
+const TYPE = "component";
+const COMPONENTS_FOLDER = "./../components/";
 
- if (!argv._[0]) {
-   throw new Error(`Error: Must give a ${TYPE} name to create.`);
- }
+if (!argv._[0]) {
+  throw new Error(`Error: Must give a ${TYPE} name to create.`);
+}
 
- const name = changeCase.pascalCase(argv._[0]);
- const targetFolder = `${name}/`;
+const words = (input) =>
+  String(input)
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2")
+    .split(/[^A-Za-z0-9]+/)
+    .filter(Boolean)
+    .map((word) => word.toLowerCase());
 
- async function write(name, dir) {
-   try {
-     await mkdirp(dir);
+const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+const pascalCase = (input) => words(input).map(capitalize).join("");
+const paramCase = (input) => words(input).join("-");
+const capitalCase = (input) => words(input).map(capitalize).join(" ");
 
-     const templateFileNamePrefix = 'Component';
-     const componentFileNamePrefix = name;
+const name = pascalCase(argv._[0]);
+const targetFolder = `${name}/`;
 
-     await Promise.all([
-       template(
-         path.resolve(
-           __dirname,
-           `templates/${TYPE}/${templateFileNamePrefix}.txt`
-         ),
-         path.resolve(dir, `${componentFileNamePrefix}.tsx`)
-       ),
-     ]);
-     await Promise.all([
-       template(
-         path.resolve(
-           __dirname,
-           `templates/${TYPE}/${templateFileNamePrefix}.styles.txt`
-         ),
-         path.resolve(dir, `${name}.styles.ts`)
-       ),
-     ]);
-     console.info(chalk.greenBright(`Created new ${name} ${TYPE} at ${dir}`));
-   } catch (error) {
-     console.error(chalk.redBright('Write error', error));
-   }
- }
+async function template(input, output) {
+  const data = {
+    pascal: pascalCase(name),
+    param: paramCase(name),
+    title: capitalCase(name),
+    depth: targetFolder ? "../" : "",
+  };
+  const str = await fs.readFile(input, "utf8");
+  await fs.writeFile(output, maxstache(str, data));
+}
 
- function template(input, output) {
-   const data = {
-     pascal: changeCase.pascalCase(name),
-     param: changeCase.paramCase(name),
-     title: changeCase.capitalCase(name),
-     depth: targetFolder ? '../' : '',
-   };
-   return new Promise((resolve, reject) => {
-     fs.readFile(input, 'utf8', (err, str) => {
-       if (err) {
-         return reject(err);
-       }
-       str = maxstache(str, data);
-       fs.writeFile(output, str, writeErr => {
-         if (writeErr) {
-           return reject(writeErr);
-         }
-         resolve();
-       });
-     });
-   });
- }
+async function write(dir) {
+  try {
+    await fs.mkdir(dir, { recursive: true });
 
- const cwd = process.cwd();
- const dir = path.resolve(__dirname, [COMPONENTS_FOLDER, targetFolder].join(''));
+    const templatesDir = path.resolve(__dirname, `templates/${TYPE}`);
+    await template(
+      path.resolve(templatesDir, "Component.txt"),
+      path.resolve(dir, `${name}.tsx`)
+    );
+    await template(
+      path.resolve(templatesDir, "Component.styles.txt"),
+      path.resolve(dir, `${name}.styles.ts`)
+    );
+    console.info(styleText("greenBright", `Created new ${name} ${TYPE} at ${dir}`));
+  } catch (error) {
+    console.error(styleText("redBright", "Write error"), error);
+  }
+}
 
- fs.stat(dir, async err => {
-   if (err) {
-     await write(name, dir);
-   } else {
-     console.info(
-       chalk.red(`Path at ${path.relative(cwd, dir)} already exists!`)
-     );
-   }
- });
+const cwd = process.cwd();
+const dir = path.resolve(__dirname, [COMPONENTS_FOLDER, targetFolder].join(""));
+
+fs.stat(dir).then(
+  () => console.info(styleText("red", `Path at ${path.relative(cwd, dir)} already exists!`)),
+  () => write(dir)
+);
