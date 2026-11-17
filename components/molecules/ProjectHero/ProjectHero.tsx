@@ -12,7 +12,7 @@ type ProjectHeroProps = {
 const ProjectHero: FC<ProjectHeroProps> = ({ projectCopy: copy }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const { setHeaderTheme } = useGlobalStore();
+  const { setHeaderTheme, isLoaderVisible } = useGlobalStore();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -39,6 +39,7 @@ const ProjectHero: FC<ProjectHeroProps> = ({ projectCopy: copy }) => {
             src={copy.background}
             quality={95}
             unoptimized
+            $isZoomPaused={isLoaderVisible}
           />
           <Styled.Mask $colors={copy.colors} />
         </Styled.BackgroundWrapper>

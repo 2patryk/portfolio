@@ -3,7 +3,7 @@ import { layoutView } from "@/utils/styles/mixins";
 import { mediaTablet } from "@/utils/styles/responsive";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -22,6 +22,7 @@ export const Cover = styled.div`
   height: 400rem;
   width: 100%;
   position: relative;
+  overflow: hidden;
   mask-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0) 0%,
@@ -34,10 +35,29 @@ export const Cover = styled.div`
   `)}
 `;
 
-export const Background = styled(Image)`
+const backgroundZoomIn = keyframes`
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.06;
+  }
+`;
+
+/*
+ * Gentle zoom-in on page enter; held paused while the loading overlay
+ * covers the page (first load), so it plays once the overlay leaves.
+ */
+export const Background = styled(Image)<{ $isZoomPaused?: boolean }>`
   object-fit: cover;
   transition: transform 0.4s ease-in-out;
   /* object-position: 0 300rem; */
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${backgroundZoomIn} 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    animation-play-state: ${({ $isZoomPaused }) =>
+      $isZoomPaused ? "paused" : "running"};
+  }
 `;
 
 export const Mask = styled.div<{ $colors: ProjectCopy["colors"] }>`

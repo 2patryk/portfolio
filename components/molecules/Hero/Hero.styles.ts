@@ -1,6 +1,6 @@
 import { layoutView } from "@/utils/styles/mixins";
 import { mediaTablet } from "@/utils/styles/responsive";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -51,7 +51,16 @@ export const Content = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(15)};
 `;
 
-export const MaskBackground = styled.div`
+const logoZoomOut = keyframes`
+  from {
+    scale: 1.15;
+  }
+  to {
+    scale: 1;
+  }
+`;
+
+export const MaskBackground = styled.div<{ $isZoomPaused?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -75,5 +84,33 @@ export const MaskBackground = styled.div`
     ${mediaTablet(css`
       bottom: -70rem;
     `)}
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: ${logoZoomOut} 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      animation-play-state: ${({ $isZoomPaused }) =>
+        $isZoomPaused ? "paused" : "running"};
+    }
+
+    /*
+     * Soft blur on the logo's left/right edges. MaskBackground (opacity +
+     * mask) is the backdrop root, so this only blurs the logo itself.
+     * Extends past the logo so the blur can bleed outwards.
+     */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 -15%;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        #000 15%,
+        transparent 40%,
+        transparent 60%,
+        #000 85%,
+        #000 100%
+      );
+    }
   }
 `;

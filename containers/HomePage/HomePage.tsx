@@ -1,6 +1,7 @@
 "use client";
 
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import Hero from "@/components/molecules/Hero/Hero";
 
@@ -11,8 +12,19 @@ import Counter from "@/components/atoms/Counter/Counter";
 import ProjectsGrid from "@/components/organisms/ProjectsGrid/ProjectsGrid";
 import { projectsOrder } from "@/utils/config";
 import Footer from "@/components/molecules/Footer/Footer";
+import { useGlobalStore } from "@/utils/global.store";
+import { pageTransition } from "@/utils/styles/mixins";
 
 const HomePage: FC = () => {
+  const shouldReduceMotion = useReducedMotion();
+  // On a full page load the Loading overlay is still up (isLoading) and
+  // handles the intro; only client-side navigations to the landing fade in.
+  const [isClientNavigation] = useState(
+    () => !useGlobalStore.getState().isLoading
+  );
+  const shouldFadeIn = isClientNavigation && !shouldReduceMotion;
+  const isLoaderVisible = useGlobalStore((s) => s.isLoaderVisible);
+
   const copy = globalCopy.pages.home;
   const projects = useMemo(
     () => projectsOrder.map((project) => globalCopy.projects[project]),
@@ -20,9 +32,13 @@ const HomePage: FC = () => {
   );
 
   return (
-    <>
+    <motion.div
+      initial={shouldFadeIn ? pageTransition.initial : false}
+      animate={pageTransition.animate}
+      transition={pageTransition.transition}
+    >
       <Styled.Wrapper>
-        <Hero />
+        <Hero isIntroPaused={isLoaderVisible} />
         <Section heading={copy.about.label}>
           <Styled.AboutWrapper>
             <Styled.Summary>{copy.about.summary}</Styled.Summary>
@@ -53,7 +69,7 @@ const HomePage: FC = () => {
         </Section>
       </Styled.Wrapper>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 

@@ -1,9 +1,10 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import * as Styled from "./Loading.styles";
 import Logo from "@/components/atoms/Logo/Logo";
 import useDisableScroll from "@/hooks/useDisableScroll";
+import { useGlobalStore } from "@/utils/global.store";
 
 type LoadingProps = {
   isLoading: boolean;
@@ -20,6 +21,11 @@ const Loading: FC<LoadingProps> = ({ isLoading }) => {
   }
 
   useDisableScroll(isVisible, "loading");
+
+  const setIsLoaderVisible = useGlobalStore((s) => s.setIsLoaderVisible);
+  useEffect(() => {
+    setIsLoaderVisible(isVisible);
+  }, [isVisible, setIsLoaderVisible]);
 
   return (
     <AnimatePresence>

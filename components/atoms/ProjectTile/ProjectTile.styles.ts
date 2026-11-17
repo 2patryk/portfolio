@@ -92,21 +92,22 @@ export const Wrapper = styled(Link)<{
   transition: opacity 0.4s ease-in-out;
 
   /*
-   * Scroll-driven reveal, staggered per column via animation-range
-   * (animation-delay has no effect on scroll timelines).
-   * --col is the tile's column within its grid row, set by ProjectsGrid.
+   * Scroll-triggered, time-based reveal. ProjectsGrid marks tiles below the
+   * fold as data-reveal="pending" and flips them to "in" once they scroll
+   * into view; the animation then runs for a fixed duration regardless of
+   * scroll speed. --col (column within the grid row, set by ProjectsGrid)
+   * staggers tiles in the same row.
    * fill-mode "backwards" so the animation stops overriding opacity
-   * (isInBackground) once the tile has fully entered.
+   * (isInBackground) once it has finished.
    */
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      animation: ${reveal} linear backwards;
-      animation-timeline: view();
-      animation-range-start: cover
-        calc(var(--reveal-start, 8%) + var(--col, 0) * var(--reveal-step, 6%));
-      animation-range-end: cover
-        calc(var(--reveal-end, 30%) + var(--col, 0) * var(--reveal-step, 6%));
-    }
+  &[data-reveal="pending"] {
+    opacity: 0;
+  }
+
+  &[data-reveal="in"] {
+    animation: ${reveal} var(--reveal-duration, 1.2s)
+      cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--col, 0) * var(--reveal-step, 150ms));
   }
 
   ${hover(css`

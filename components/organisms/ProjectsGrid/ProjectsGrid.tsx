@@ -44,6 +44,35 @@ const ProjectsGrid: FC<ProjectsGridProps> = ({
     return () => observer.disconnect();
   }, [projects]);
 
+  // Scroll only triggers the reveal; its duration is fixed in CSS.
+  // Tiles already on screen at mount stay as rendered to avoid a flash.
+  useEffect(() => {
+    const content = contentRef.current;
+    if (!content) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          (entry.target as HTMLElement).dataset.reveal = "in";
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+    );
+
+    Array.from(content.children).forEach((child) => {
+      const tile = child as HTMLElement;
+      if (tile.dataset.reveal === "in") return;
+      if (tile.getBoundingClientRect().top < window.innerHeight) return;
+      tile.dataset.reveal = "pending";
+      observer.observe(tile);
+    });
+
+    return () => observer.disconnect();
+  }, [projects]);
+
   return (
     <Styled.Wrapper ref={ref}>
       {isDesktop && hasBackgroundEffect && (
