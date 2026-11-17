@@ -5,11 +5,10 @@ import * as Styled from "./Pano.styles";
 import { PANO_DATA, PanoType, getPanoText, getPanoMarkerTooltip } from "@/utils/data";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import {
-  AutorotatePlugin,
-  MarkersPlugin,
-  ReactPhotoSphereViewer,
-} from "react-photo-sphere-viewer";
+import { ReactPhotoSphereViewer, type PluginConfig } from "react-photo-sphere-viewer";
+import type { Viewer } from "@photo-sphere-viewer/core";
+import { AutorotatePlugin } from "@photo-sphere-viewer/autorotate-plugin";
+import { MarkersPlugin } from "@photo-sphere-viewer/markers-plugin";
 import "@photo-sphere-viewer/markers-plugin/index.css";
 
 const R = 20;
@@ -29,7 +28,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
   const [debugPos, setDebugPos] = useState<DebugPos | null>(null);
   const [debugMarkers, setDebugMarkers] = useState<Record<string, DebugPos>>({});
   const isPlayingRef = useRef(true);
-  const viewerRef = useRef<any>(null);
+  const viewerRef = useRef<Viewer | null>(null);
   const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const { place, region, country } = getPanoText(pano);
@@ -58,7 +57,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
     draggable: IS_DEV,
   })) ?? [];
 
-  const plugins: any[] = [
+  const plugins: PluginConfig[] = [
     [
       AutorotatePlugin,
       {
@@ -68,11 +67,11 @@ const Pano: FC<PanoProps> = ({ pano }) => {
         autorotateSpeed: "1rpm",
       },
     ],
-    ...(markers.length > 0 ? [[MarkersPlugin, { markers }]] : []),
+    ...(markers.length > 0 ? [[MarkersPlugin, { markers }] as PluginConfig] : []),
   ];
 
   const toggleAutorotate = () => {
-    const plugin = viewerRef.current?.getPlugin(AutorotatePlugin);
+    const plugin = viewerRef.current?.getPlugin<AutorotatePlugin>(AutorotatePlugin);
     clearTimeout(resumeTimeoutRef.current);
     if (isPlayingRef.current) {
       plugin?.stop();
@@ -84,7 +83,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
     setIsPlaying(isPlayingRef.current);
   };
 
-  const handleReady = (instance: any) => {
+  const handleReady = (instance: Viewer) => {
     viewerRef.current = instance;
 
     const container: HTMLElement = instance.container;
@@ -93,7 +92,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
       clearTimeout(resumeTimeoutRef.current);
       if (!isPlayingRef.current) return;
       resumeTimeoutRef.current = setTimeout(() => {
-        viewerRef.current?.getPlugin(AutorotatePlugin)?.start();
+        viewerRef.current?.getPlugin<AutorotatePlugin>(AutorotatePlugin)?.start();
       }, 800);
     };
 
@@ -110,7 +109,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
       });
 
       // Dragged marker → update coordinates
-      const markersPlugin = instance.getPlugin(MarkersPlugin);
+      const markersPlugin = instance.getPlugin<MarkersPlugin>(MarkersPlugin);
       if (markersPlugin) {
         markersPlugin.addEventListener("select-marker", (e: any) => {
           if (e.marker?.config?.position) {
@@ -138,10 +137,8 @@ const Pano: FC<PanoProps> = ({ pano }) => {
           src={pano.src}
           height={"100vh"}
           width={"100%"}
-          container={""}
           navbar={false}
-          loadingImg={undefined}
-          plugins={plugins as any}
+          plugins={plugins}
           defaultZoomLvl={20}
           defaultPitch="-11deg"
           onReady={handleReady}
