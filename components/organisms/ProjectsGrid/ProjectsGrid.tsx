@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 
 import * as Styled from "./ProjectsGrid.styles";
 import { ProjectCopy } from "@/utils/copy";
@@ -18,14 +18,38 @@ const ProjectsGrid: FC<ProjectsGridProps> = ({
   const { isDesktop } = useGlobalStore();
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.3 });
+  const contentRef = useRef<HTMLDivElement>(null);
   const [activeProject, setActiveProject] = useState<ProjectCopy | null>(null);
+
+  // Expose each tile's column within its grid row as --col, used to stagger
+  // the scroll-driven reveal. Measured from layout because spans and
+  // breakpoints make the column impossible to derive from the child index.
+  useEffect(() => {
+    const content = contentRef.current;
+    if (!content) return;
+
+    const update = () => {
+      const nextColInRow = new Map<number, number>();
+      Array.from(content.children).forEach((child) => {
+        const tile = child as HTMLElement;
+        const col = nextColInRow.get(tile.offsetTop) ?? 0;
+        tile.style.setProperty("--col", String(col));
+        nextColInRow.set(tile.offsetTop, col + 1);
+      });
+    };
+
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(content);
+    return () => observer.disconnect();
+  }, [projects]);
 
   return (
     <Styled.Wrapper ref={ref}>
       {isDesktop && hasBackgroundEffect && (
         <Styled.Background $colors={isInView ? activeProject?.colors : null} />
       )}
-      <Styled.ProjectsContent $count={projects.length}>
+      <Styled.ProjectsContent ref={contentRef} $count={projects.length}>
         {projects.map((project) => (
           <ProjectTile
             key={project.name}

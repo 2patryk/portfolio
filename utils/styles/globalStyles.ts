@@ -50,7 +50,9 @@ const style = css`
   body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    /* clip, not hidden: hidden would make body a (non-scrolling) scroll
+       container and break scroll-driven animations (view() timelines) */
+    overflow-x: clip;
   }
 
   html {

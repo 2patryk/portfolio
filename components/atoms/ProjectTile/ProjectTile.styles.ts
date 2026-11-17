@@ -1,7 +1,7 @@
 import { ProjectCopy } from "@/utils/copy";
 import Image from "next/image";
 import Link from "next/link";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ProjectTileProps } from "./ProjectTile";
 import { hover, outlineOnFocus } from "@/utils/styles/mixins";
 
@@ -65,6 +65,19 @@ export const Mask = styled.div<{ $colors: ProjectCopy["colors"] }>`
   transition: opacity 0.4s ease-in-out;
 `;
 
+const reveal = keyframes`
+  from {
+    opacity: 0;
+    translate: 0 80px;
+    scale: 0.9;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+`;
+
 export const Wrapper = styled(Link)<{
   $isInBackground: ProjectTileProps["isInBackground"];
 }>`
@@ -77,6 +90,24 @@ export const Wrapper = styled(Link)<{
   justify-content: flex-end;
   overflow: hidden;
   transition: opacity 0.4s ease-in-out;
+
+  /*
+   * Scroll-driven reveal, staggered per column via animation-range
+   * (animation-delay has no effect on scroll timelines).
+   * --col is the tile's column within its grid row, set by ProjectsGrid.
+   * fill-mode "backwards" so the animation stops overriding opacity
+   * (isInBackground) once the tile has fully entered.
+   */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: ${reveal} linear backwards;
+      animation-timeline: view();
+      animation-range-start: cover
+        calc(var(--reveal-start, 8%) + var(--col, 0) * var(--reveal-step, 6%));
+      animation-range-end: cover
+        calc(var(--reveal-end, 30%) + var(--col, 0) * var(--reveal-step, 6%));
+    }
+  }
 
   ${hover(css`
     ${Background} {
