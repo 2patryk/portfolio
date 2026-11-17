@@ -90,11 +90,11 @@ const ProjectPage: FC<ProjectPageProps> = ({ projectCopy }) => {
         </Styled.Highlights>
       </Styled.Content>
       <Styled.Assets $count={assets?.normal?.length}>
-        {assets?.normal?.map((asset) => (
+        {assets?.normal?.map((asset, index) => (
           <Asset
             key={asset.src}
             src={asset.src}
-            alt={asset.alt as string}
+            alt={asset.alt ?? `${projectCopy.name} – preview ${index + 1}`}
             type={asset.type}
           />
         ))}
@@ -104,7 +104,7 @@ const ProjectPage: FC<ProjectPageProps> = ({ projectCopy }) => {
           <Asset
             src={assets.wide[0].src}
             type={assets.wide[0].type}
-            alt={assets.wide[0].alt as string}
+            alt={assets.wide[0].alt ?? `${projectCopy.name} – wide preview`}
           />
         </Styled.WideAsset>
       )}

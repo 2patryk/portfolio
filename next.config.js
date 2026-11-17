@@ -9,6 +9,10 @@ const nextConfig = {
   typedRoutes: true,
   // A stray lockfile in a parent folder confuses workspace root inference
   outputFileTracingRoot: __dirname,
+  images: {
+    // Next 16 only allows quality 75 by default; keep in sync with <Image quality>
+    qualities: [75, 85, 95],
+  },
   compiler: {
     styledComponents: true,
   },
