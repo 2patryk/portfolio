@@ -6,9 +6,9 @@ const nextConfig = {
     NEXT_PUBLIC_BUILD_DATE: new Date().toISOString().slice(0, 10),
   },
   reactStrictMode: false,
-  experimental: {
-    typedRoutes: true,
-  },
+  typedRoutes: true,
+  // A stray lockfile in a parent folder confuses workspace root inference
+  outputFileTracingRoot: __dirname,
   compiler: {
     styledComponents: true,
   },

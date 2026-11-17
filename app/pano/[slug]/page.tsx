@@ -1,11 +1,9 @@
 import { PANO_DATA, getPanoText } from "@/utils/data";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
-
-const Pano = dynamic(() => import("@/components/organisms/Pano/Pano"), { ssr: false });
+import Pano from "@/components/organisms/Pano/PanoClient";
 
 type PageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -13,7 +11,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const pano = PANO_DATA.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const pano = PANO_DATA.find((p) => p.slug === slug);
 
   if (!pano) return { title: "Pano – Patryk Ordon" };
 
@@ -38,8 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function Page({ params }: PageProps) {
-  const pano = PANO_DATA.find((p) => p.slug === params.slug);
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+  const pano = PANO_DATA.find((p) => p.slug === slug);
 
   return <>{pano && <Pano pano={pano} />}</>;
 }

@@ -9,7 +9,7 @@ type PageParams = {
 };
 
 type PageProps = {
-  params: PageParams;
+  params: Promise<PageParams>;
 };
 
 const getProject = (slug: string) => {
@@ -28,7 +28,9 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params: { slug } }: PageProps) {
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+
   const projectCopy = getProject(slug);
   const metaCopy = globalCopy.meta;
 
@@ -41,7 +43,9 @@ export async function generateMetadata({ params: { slug } }: PageProps) {
   };
 }
 
-export default function Page({ params: { slug } }: PageProps) {
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
   const projectCopy = getProject(slug);
 
   return projectCopy ? (

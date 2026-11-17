@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Wrapper = styled(motion.div)`
+const exitTransition = {
+  exit: {
+    y: "-100%",
+    transition: {
+      delay: 0.2,
+      duration: 0.6,
+      ease: "easeInOut" as const,
+    },
+  },
+};
+
+export const Wrapper = styled(motion.div).attrs(exitTransition)`
   position: fixed;
   top: 0;
   left: 0;
@@ -16,13 +27,3 @@ export const Wrapper = styled(motion.div)`
   z-index: ${({ theme }) => theme.zIndex.loading};
 `;
 
-Wrapper.defaultProps = {
-  exit: {
-    y: "-100%",
-    transition: {
-      delay: 0.2,
-      duration: 0.6,
-      ease: "easeInOut",
-    },
-  },
-};

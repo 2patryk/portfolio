@@ -30,7 +30,7 @@ const Pano: FC<PanoProps> = ({ pano }) => {
   const [debugMarkers, setDebugMarkers] = useState<Record<string, DebugPos>>({});
   const isPlayingRef = useRef(true);
   const viewerRef = useRef<any>(null);
-  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const { place, region, country } = getPanoText(pano);
   const visiblePanos = PANO_DATA.filter((p) => !p.hidden);
