@@ -18,23 +18,13 @@ const nextConfig = {
       { source: "/kaliska/:path*", destination: "http://srv71.mikr.us:40457/:path*" },
     ];
   },
-  webpack: (config) => {
-    // ... other rules
-
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: "@svgr/webpack",
-        },
-      ],
-      type: "javascript/auto",
-      issuer: {
-        and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
-    });
-
-    return config;
+    },
   },
 };
 

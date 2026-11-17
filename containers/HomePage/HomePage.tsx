@@ -41,11 +41,11 @@ const HomePage: FC = () => {
         <Section heading={copy.contact.label}>
           <Styled.Contact>
             {copy.contact.contact.pre}{" "}
-            <a target="_blank" href={globalCopy.global.linkedin}>
+            <a target="_blank" rel="noreferrer" href={globalCopy.global.linkedin}>
               {copy.contact.contact.linkedin}
             </a>{" "}
             {copy.contact.contact.or}{" "}
-            <a target="_blank" href={`mailto:${globalCopy.global.email}`}>
+            <a target="_blank" rel="noreferrer" href={`mailto:${globalCopy.global.email}`}>
               {copy.contact.contact.email}
             </a>
             .

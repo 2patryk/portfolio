@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import * as Styled from "./Loading.styles";
@@ -11,10 +11,13 @@ type LoadingProps = {
 
 const Loading: FC<LoadingProps> = ({ isLoading }) => {
   const [isVisible, setIsVisible] = useState(isLoading);
+  const [wasLoading, setWasLoading] = useState(isLoading);
 
-  useEffect(() => {
-    isLoading && setIsVisible(true);
-  }, [isLoading]);
+  // Re-show the loader whenever loading starts again
+  if (isLoading !== wasLoading) {
+    setWasLoading(isLoading);
+    if (isLoading) setIsVisible(true);
+  }
 
   useDisableScroll(isVisible, "loading");
 
