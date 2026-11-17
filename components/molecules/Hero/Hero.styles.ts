@@ -90,27 +90,5 @@ export const MaskBackground = styled.div<{ $isZoomPaused?: boolean }>`
       animation-play-state: ${({ $isZoomPaused }) =>
         $isZoomPaused ? "paused" : "running"};
     }
-
-    /*
-     * Soft blur on the logo's left/right edges. MaskBackground (opacity +
-     * mask) is the backdrop root, so this only blurs the logo itself.
-     * Extends past the logo so the blur can bleed outwards.
-     */
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0 -15%;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      mask-image: linear-gradient(
-        to right,
-        #000 0%,
-        #000 15%,
-        transparent 40%,
-        transparent 60%,
-        #000 85%,
-        #000 100%
-      );
-    }
   }
 `;
