@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import ProjectTile from "./ProjectTile";
 import { globalCopy } from "@/utils/copy";
 

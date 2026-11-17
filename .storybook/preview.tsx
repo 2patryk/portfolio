@@ -1,5 +1,5 @@
 import { darkTheme, lightTheme } from "../utils/styles/theme";
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/nextjs-vite";
 import GlobalStyles from "../utils/styles/globalStyles";
 
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
