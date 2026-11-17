@@ -1,15 +1,13 @@
 import { layoutView, pageTransition } from "@/utils/styles/mixins";
 import { mediaDesktop, mediaTablet } from "@/utils/styles/responsive";
-import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled(motion.main)`
+export const Wrapper = styled.main`
+  ${pageTransition};
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(4)};
 `;
-
-Wrapper.defaultProps = pageTransition;
 
 export const Content = styled.div`
   ${layoutView};

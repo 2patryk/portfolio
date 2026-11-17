@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 import { MediaContent, mediaDesktop, mediaTablet } from "./responsive";
 import { breakpointDesktop } from "../vars";
 import { Typography } from "./theme";
@@ -80,9 +80,14 @@ export const defaultHover = css`
   `)}
 `;
 
-export const pageTransition = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.4, ease: "easeInOut" },
-};
+const pageFadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+`;
+
+// Plain CSS fade-in for page entry. framer-motion's opacity animation
+// dropped to 0 for one frame when it finished, making the page blink.
+export const pageTransition = css`
+  animation: ${pageFadeIn} 0.4s ease-in-out;
+`;
