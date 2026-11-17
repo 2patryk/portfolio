@@ -2,7 +2,6 @@ import NotFoundPage from "@/containers/NotFoundPage/NotFoundPage";
 import ProjectPage from "@/containers/ProjectPage/ProjectPage";
 import { globalCopy } from "@/utils/copy";
 import { getSlug } from "@/utils/routes";
-import slugify from "slugify";
 
 type PageParams = {
   slug: string;
@@ -24,7 +23,7 @@ export function generateStaticParams() {
   const projects = Object.values(globalCopy.projects);
 
   return projects.map((project) => ({
-    slug: slugify(project.name),
+    slug: getSlug(project.name),
   }));
 }
 
