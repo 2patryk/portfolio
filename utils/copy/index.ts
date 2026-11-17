@@ -57,7 +57,8 @@ export const globalCopy = {
     email: "patrykordon@gmail.com",
     linkedin: "https://www.linkedin.com/in/patrykordon/",
     github: "https://github.com/2patryk",
-    lastUpdate: "2026-03-13",
+    // Set at build time in next.config.js
+    lastUpdate: process.env.NEXT_PUBLIC_BUILD_DATE as string,
   },
   menu: {
     about: "About me",

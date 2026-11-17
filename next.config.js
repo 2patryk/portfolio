@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   skipTrailingSlashRedirect: true,
+  env: {
+    // Shown as "Last update" in the footer
+    NEXT_PUBLIC_BUILD_DATE: new Date().toISOString().slice(0, 10),
+  },
   reactStrictMode: false,
   experimental: {
     typedRoutes: true,
