@@ -24,7 +24,7 @@
     "date-fns": "3.6.0",
     "eslint": "8.47.0",
     "eslint-config-next": "^14.2.35",
-    "framer-motion": "^11.18.2",
+    "framer-motion": "^12.43.0",
     "mkdirp": "1.0.4",
     "next": "^14.2.35",
     "polished": "^4.3.1",
