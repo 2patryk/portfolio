@@ -18,7 +18,7 @@
     "@next/third-parties": "^16.4.6",
     "@photo-sphere-viewer/markers-plugin": "^5.15.1",
     "date-fns": "^4.4.0",
-    "framer-motion": "^12.43.0",
+    "framer-motion": "^14.14.0",
     "next": "^16.4.6",
     "polished": "^4.3.1",
     "react": "^19.3.1",
