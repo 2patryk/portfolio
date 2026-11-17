@@ -17,7 +17,7 @@
     "@ariakit/react": "^0.4.43",
     "@next/third-parties": "^16.4.6",
     "@photo-sphere-viewer/markers-plugin": "^5.15.1",
-    "date-fns": "3.6.0",
+    "date-fns": "^4.4.0",
     "framer-motion": "^12.43.0",
     "next": "^16.4.6",
     "polished": "^4.3.1",
@@ -26,7 +26,7 @@
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "slugify": "^1.6.9",
     "styled-components": "^6.6.0",
-    "zustand": "^4.5.7"
+    "zustand": "^5.1.0"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^10.6.7",
